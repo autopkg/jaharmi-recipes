@@ -16,6 +16,8 @@
 
 import re
 import urllib2
+import urlparse
+import os
 
 from autopkglib import Processor, ProcessorError
 
@@ -117,6 +119,24 @@ class OracleJava7JDKURLProvider(Processor):
         download_url = m.group("url")
         return download_url
 
+    def get_java_download_version(self, download_url):
+        """Output the version string for the Java 7 JDK download."""
+
+        # Split the URL, get the dirname
+        url_split = urlparse.urlsplit(download_url)
+        url_split_path = url_split.path
+        download_dirname = os.path.dirname(url_split_path)
+
+        # Find the version string in the last dirname component
+        download_dir_version = os.path.basename(download_dirname)
+        # Split on the non-numeric bits
+        download_dir_version_split = re.split('\D+', download_dir_version)
+        # Insert 1
+        download_dir_version_split.insert(0, "1")
+        # Reassemble by joining with periods
+        download_version = ".".join(download_dir_version_split)
+        return download_version
+
     def main(self):
         """Find and return a download URL along with needed request headers."""
 
@@ -129,8 +149,15 @@ class OracleJava7JDKURLProvider(Processor):
 
         # Get the base URL and then use it it find the file download URL
         base_url = self.env.get("base_url", BASE_URL)
-        self.env["url"] = self.get_java_dmg_url(base_url)
+        download_url = self.get_java_dmg_url(base_url)
+        self.env["url"] = download_url
         self.output("Found URL %s" % self.env["url"])
+
+        # Get the string representing the requested DeployStudio version
+        download_version = self.get_java_download_version(download_url)
+        self.env["version"] = download_version
+        self.output("Found version %s" % self.env["version"])
+
 
 if __name__ == "__main__":
     processor = OracleJava7JDKURLProvider()
