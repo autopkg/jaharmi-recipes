@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest release version of ControlPlane and imports into a Munki repository.</string>
+    <key>Identifier</key>
+    <string>com.github.jaharmi.munki.ControlPlane</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>ControlPlane</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>Rue</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>ControlPlane allows you to build configuration profiles, contexts in ControlPlane lingo, for your Mac based on where you are or what you are doing.  ControlPlane determines where you are or what you are doing based on a number of available evidence sources and then automatically reconfigures your Mac based on your preferences.  Evidence sources can include your current location, visible WiFi networks, attached USB devices, running applications and more.  You can even write your own evidence sources using shell scripts!</string>
+            <key>display_name</key>
+            <string>Rue ControlPlane</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+            <key>unattended_uninstall</key>
+            <true/>
+            <key>supported_architectures</key>
+			<array>
+			   <string>i386</string>
+			   <string>x86_64</string>
+			</array>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.jaharmi.download.ControlPlane</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
