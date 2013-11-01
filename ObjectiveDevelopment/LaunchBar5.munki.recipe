@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest release version of LaunchBar 5 and imports into a Munki repository.</string>
+    <key>Identifier</key>
+    <string>com.github.jaharmi.munki.LaunchBar5</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>LaunchBar5</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>ObjectiveDevelopment</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>A single keyboard shortcut lets you access and control every aspect of your digital life. Whatever you want to accomplish on your Mac – with LaunchBar it’s only a few keystrokes away.
+
+It’s a file manager, a web and desktop search tool, an app launcher, a clipboard manager, a jukebox, a calculator, an information browser … or quite simply a tremendous time saver!</string>
+            <key>display_name</key>
+            <string>Objective Development LaunchBar</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+            <key>unattended_uninstall</key>
+            <true/>
+            <key>supported_architectures</key>
+            <array>
+               <string>i386</string>
+               <string>x86_64</string>
+            </array>
+            <key>items_to_copy</key>
+            <array>
+                <dict>
+                    <key>destination_path</key>
+                    <string>/Applications</string>
+                    <key>source_item</key>
+                    <string>LaunchBar.app</string>
+                    <key>user</key>
+                    <string>root</string>
+                    <key>group</key>
+                    <string>wheel</string>
+                    <key>mode</key>
+                    <string>go-w</string>
+                </dict>
+            </array>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.jaharmi.download.LaunchBar5</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
