@@ -26,8 +26,8 @@ from autopkglib import Processor, ProcessorError
 __all__ = ["LaunchBar5URLProvider"]
 
 # URL to consult for current version of LaunchBar
-# http://sw-update.obdev.at/update-feeds/launchbar-5.plist
-update_url = "http://sw-update.obdev.at/update-feeds/launchbar-5.plist"
+# https://sw-update.obdev.at/update-feeds/launchbar-5.plist
+update_url = "https://sw-update.obdev.at/update-feeds/launchbar-5.plist"
 
 
 class LaunchBar5URLProvider(Processor):
