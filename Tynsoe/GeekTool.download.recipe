@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>GeekTool</string>
         <key>SPARKLE_FEED_URL</key>
-        <string>http://dl.dropboxusercontent.com/u/1760713/appcast/appcast.xml</string>
+        <string>https://dl.dropboxusercontent.com/u/1760713/appcast/appcast.xml</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
