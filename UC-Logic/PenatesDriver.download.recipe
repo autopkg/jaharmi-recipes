@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created manually.</string>
+	<key>Description</key>
+	<string>Downloads the latest version of the UC-Logic Penates series driver package for OS X. This driver is used by Monoprice graphic tablets.</string>
+	<key>Identifier</key>
+	<string>com.github.jaharmi.download.UCLogic.PenatesDriver</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Penates</string>
+		<key>PRODUCT_DOWNLOAD_URL</key>
+		<string>http://www.uc-logic.com/index.php?lang=en&amp;action=support</string>
+		<key>PRODUCT_RE_PATTERN</key>
+		<string>.a target="blank" href="(http://www.uc-logic.com/upload/flash//driver/Penates/PenTabletDriver\d+-\d+-\d+.zip)">Ver. \d+ for Mac OS X</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.5.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>%PRODUCT_RE_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>FILE_DOWNLOAD_URL</string>
+				<key>url</key>
+				<string>%PRODUCT_DOWNLOAD_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%FILE_DOWNLOAD_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+	</array>
+</dict>
+</plist>
