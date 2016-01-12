@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created with Recipe Robot v1.0 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Description</key>
+	<string>Downloads the latest version of OpenTTD.</string>
+	<key>Identifier</key>
+	<string>com.github.jaharmi.download.OpenTTD</string>
+	<key>Input</key>
+	<dict>
+	    <key>DOWNLOAD_BRANCH</key>
+	    <string>stable</string>
+		<key>PRODUCT_DOWNLOAD_URL</key>
+		<string>https://www.openttd.org/en/download-</string>
+		<key>NAME</key>
+		<string>OpenTTD</string>
+		<key>PRODUCT_RE_PATTERN</key>
+		<string>.a href="//(binaries.openttd.org/releases/[0-9\.]+/openttd-[0-9\.]+-macosx-universal.zip)"</string>
+<!-- 
+        https://www.openttd.org/en/download-stable
+        <a href="//binaries.openttd.org/releases/1.5.3/openttd-1.5.3-macosx-universal.zip">
+		https://binaries.openttd.org/releases/1.5.3/openttd-1.5.3-macosx-universal.zip
+		https://www.openttd.org/en/download-trunk
+		https://binaries.openttd.org/nightlies/trunk/r27490/openttd-trunk-r27490-macosx-universal.zip
+ -->
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.5.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>%PRODUCT_RE_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>FILE_DOWNLOAD_URL</string>
+				<key>url</key>
+				<string>%PRODUCT_DOWNLOAD_URL%%DOWNLOAD_BRANCH%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>https://%FILE_DOWNLOAD_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications/%NAME%.app/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleShortVersionString</string>
+			</dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+		</dict>
+	</array>
+</dict>
+</plist>
