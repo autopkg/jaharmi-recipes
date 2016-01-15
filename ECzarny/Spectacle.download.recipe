@@ -3,17 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v1.0 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Initially created with Recipe Robot v1.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
 	<string>Downloads the latest version of Spectacle.</string>
 	<key>Identifier</key>
 	<string>com.github.jaharmi.download.Spectacle</string>
 	<key>Input</key>
 	<dict>
-		<key>DOWNLOAD_URL</key>
-		<string>https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.0.1.zip</string>
+		<key>PRODUCT_DOWNLOAD_URL</key>
+		<string>https://www.spectacleapp.com</string>
 		<key>NAME</key>
 		<string>Spectacle</string>
+		<key>PRODUCT_RE_PATTERN</key>
+		<string>.a.+href="(https://s3.amazonaws.com/spectacle/downloads/Spectacle.[\d\.]+.zip)"</string>
+<!-- 
+        https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.0.1.zip
+        <a class="button" href="https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.0.1.zip" onclick="var that = this; _gaq.push(['_trackEvent', 'Download', 'Spectacle', this.href]); setTimeout(function() { location.href = that.href; }, 200); return false;">Download Spectacle</a>
+ -->
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
@@ -22,10 +28,21 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>filename</key>
-				<string>%NAME%.zip</string>
+				<key>re_pattern</key>
+				<string>%PRODUCT_RE_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>FILE_DOWNLOAD_URL</string>
 				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<string>%PRODUCT_DOWNLOAD_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>CURLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%FILE_DOWNLOAD_URL%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
