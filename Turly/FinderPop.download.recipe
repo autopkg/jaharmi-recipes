@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of FinderPop.</string>
+	<key>Identifier</key>
+	<string>com.github.jaharmi.download.FinderPop</string>
+	<key>Input</key>
+	<dict>
+		<key>PRODUCT_DOWNLOAD_URL</key>
+		<string>http://www.finderpop.com/fp_version.txt</string>
+		<key>NAME</key>
+		<string>FinderPop</string>
+		<key>PRODUCT_RE_PATTERN</key>
+		<string>^([0-9]{3})</string>
+<!-- 
+		<a href="FP256.zip">FinderPop 2.5.6</a>
+		http://www.finderpop.com/FP256.zip
+		http://www.finderpop.com/fp_version.txt
+ -->
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.5.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>%PRODUCT_RE_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>FILE_DOWNLOAD_URL</string>
+				<key>url</key>
+				<string>%PRODUCT_DOWNLOAD_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>http://www.finderpop.com/FP%FILE_DOWNLOAD_URL%.zip</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+	</array>
+</dict>
+</plist>
