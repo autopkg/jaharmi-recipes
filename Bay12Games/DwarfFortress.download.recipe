@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of Dwarf Fortress.</string>
+	<key>Identifier</key>
+	<string>com.github.jaharmi.download.DwarfFortress</string>
+	<key>Input</key>
+	<dict>
+		<key>PRODUCT_DOWNLOAD_URL</key>
+		<string>http://www.bay12games.com/dwarves/</string>
+		<key>NAME</key>
+		<string>Dwarf Fortress</string>
+		<key>PRODUCT_RE_PATTERN</key>
+		<string>.a href="(df_\d+_\d+_osx.tar.bz2)"</string>
+<!-- 
+        http://www.bay12games.com/dwarves/
+        <a href="df_42_05_osx.tar.bz2">Mac (Intel)</a>
+		http://www.bay12games.com/dwarves/df_42_05_osx.tar.bz2
+ -->
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.5.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>%PRODUCT_RE_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>FILE_DOWNLOAD_URL</string>
+				<key>url</key>
+				<string>%PRODUCT_DOWNLOAD_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%PRODUCT_DOWNLOAD_URL%%FILE_DOWNLOAD_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/</string>
+            </dict>
+        </dict>
+	</array>
+</dict>
+</plist>
