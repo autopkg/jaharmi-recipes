@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of SaveHollywood screen saver.</string>
+	<key>Identifier</key>
+	<string>com.github.jaharmi.download.SaveHollywood</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>SaveHollywood</string>
+		<key>DISCOVERY_URL</key>
+		<string>http://s.sudre.free.fr/Software/SaveHollywood/about.html</string>
+        <!--
+        <tr><td align="right"><b>Version</b>:</td><td>2.2</td></tr>
+        -->
+		<key>RE_PATTERN</key>
+		<string>.tr..td align="right"..b.Version./b.:./td..td.([\d\.]+)./td../tr.</string>
+<!-- 
+		<string>.a href="//(binaries.openttd.org/releases/[0-9\.]+/openttd-[0-9\.]+-macosx-universal.zip)"</string>
+ -->
+		<key>DOWNLOAD_URL</key>
+		<string>http://s.sudre.free.fr/Software/files/%NAME%.dmg</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.5.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>%RE_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>version</string>
+				<key>url</key>
+				<string>%DISCOVERY_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+				<key>url</key>
+				<string>%DOWNLOAD_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%pathname%/%NAME%.saver/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleShortVersionString</string>
+			</dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+		</dict>
+        <!-- 
+        Temporary workaround for CodeSignatureVerifier limitation.
+        Copy file change file extension to ".app".
+        Remove Copier when no longer necessary.
+         -->
+        <dict>
+        	<key>Arguments</key>
+        	<dict>
+        	    <key>destination_path</key>
+        	    <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.app</string>
+        	    <key>source_path</key>
+        	    <string>%pathname%/%NAME%.saver</string>
+        	    <key>overwrite</key>
+        	    <true/>
+        	</dict>
+        	<key>Processor</key>
+        	<string>Copier</string>
+        </dict>
+        <!-- 
+        Change back from app to prefPane when that is supported.
+         -->
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.app</string>
+				<key>requirement</key>
+				<string>anchor apple generic and identifier "fr.whitebox.SaveHollywood" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = NL5M9E394P)</string>
+			</dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+		</dict>
+        <!-- 
+        Remove PathDeleter when prefPane verification is supported.
+         -->
+        <dict>
+        	<key>Arguments</key>
+        	<dict>
+        	    <key>path_list</key>
+        	    <array>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.app</string>        	    	
+        	    </array>
+        	</dict>
+        	<key>Processor</key>
+        	<string>PathDeleter</string>
+        </dict>
+	</array>
+</dict>
+</plist>
