@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads and installs the latest version of Safari Technology Preview.</string>
+	<key>Identifier</key>
+	<string>com.github.jaharmi.install.SafariTechnologyPreview</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>SafariTechnologyPreview</string>
+		<key>DISPLAY_NAME</key>
+		<string>Safari Technology Preview</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.5.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.dmg/%DISPLAY_NAME%*.pkg</string>
+			</dict>
+			<key>Processor</key>
+			<string>Installer</string>
+		</dict>
+	</array>
+	<key>ParentRecipe</key>
+	<string>com.github.jaharmi.download.SafariTechnologyPreview</string>
+</dict>
+</plist>
