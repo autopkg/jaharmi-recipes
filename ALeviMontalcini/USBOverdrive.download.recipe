@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of USB Overdrive.</string>
+	<key>Identifier</key>
+	<string>com.github.jaharmi.download.USBOverdrive</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>USBOverdrive</string>
+		<key>DISPLAY_NAME</key>
+		<string>USB Overdrive</string>
+		<key>PRODUCT_RE_URL</key>
+		<string>http://www.senlick.com/html/01.01.html</string>
+		<key>PRODUCT_RE_PATTERN</key>
+		<string>.a href="\.\./(macsw/USB-Overdrive-[0-9\.]+.dmg)".USB Overdrive [0-9\.]+./a.</string>
+<!-- 
+        Example URL
+        <a href="../macsw/USB-Overdrive-32.dmg">USB Overdrive 3.2</a>
+-->
+		<key>PRODUCT_DOWNLOAD_URL</key>
+		<string>http://www.senlick.com</string>
+		<key>PRODUCT_VERSION_RE_URL</key>
+		<string>%PRODUCT_DOWNLOAD_URL%/html/01.01.html</string>
+		<key>PRODUCT_VERSION_RE_PATTERN</key>
+		<string>.a href="\.\./macsw/USB-Overdrive-[0-9\.]+.dmg".USB Overdrive ([0-9\.]+)./a.</string>
+		<key>PRODUCT_PACKAGE_NAME</key>
+		<string>Install %DISPLAY_NAME%</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.5.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>%PRODUCT_VERSION_RE_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>version</string>
+				<key>url</key>
+				<string>%PRODUCT_VERSION_RE_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>%PRODUCT_RE_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>DOWNLOAD_URL</string>
+				<key>url</key>
+				<string>%PRODUCT_RE_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+			    <key>url</key>
+			    <string>%PRODUCT_DOWNLOAD_URL%/%DOWNLOAD_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+            <key>Arguments</key>   
+            <dict>   
+                <key>input_path</key>   
+                <string>%pathname%/%PRODUCT_PACKAGE_NAME%.pkg</string>
+                <key>expected_authority_names</key>
+                <array>
+                    <string>Developer ID Installer: A. Levi Montalcini</string>
+                    <string>Developer ID Certification Authority</string>
+                    <string>Apple Root CA</string>
+                </array>
+            </dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+		</dict>
+	</array>
+</dict>
+</plist>

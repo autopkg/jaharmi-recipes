@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads and installs the latest version of USB Overdrive.</string>
+	<key>Identifier</key>
+	<string>com.github.jaharmi.install.USBOverdrive</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>USBOverdrive</string>
+		<key>DISPLAY_NAME</key>
+		<string>USB Overdrive</string>
+		<key>PRODUCT_PACKAGE_NAME</key>
+		<string>Install %DISPLAY_NAME%</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.5.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.jaharmi.download.USBOverdrive</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+                <string>%pathname%/%PRODUCT_PACKAGE_NAME%.pkg</string>
+			</dict>
+			<key>Processor</key>
+			<string>Installer</string>
+		</dict>
+	</array>
+</dict>
+</plist>
