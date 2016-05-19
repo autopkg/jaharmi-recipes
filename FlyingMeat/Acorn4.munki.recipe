@@ -11,7 +11,7 @@
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps/Acorn</string>
         <key>SU_FEED_URL</key>
-        <string>http://www.flyingmeat.com/download/acorn4update.xml</string>
+        <string>https://secure.flyingmeat.com/download/acorn4update.xml</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
