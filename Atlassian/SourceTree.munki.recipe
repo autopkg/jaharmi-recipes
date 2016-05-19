@@ -11,7 +11,7 @@
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps/SourceTree</string>
         <key>SU_FEED_URL</key>
-        <string>http://www.sourcetreeapp.com/update/SparkleAppcast.xml</string>
+        <string>https://www.sourcetreeapp.com/update/SparkleAppcast.xml</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
