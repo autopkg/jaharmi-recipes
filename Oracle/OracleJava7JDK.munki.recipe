@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads latest release version of Oracle Java 7 JDK and imports into a Munki repository.</string>
     <key>Identifier</key>
-    <string>com.github.jaharmi.munki.OracleJava7JDK.munki</string>
+    <string>com.github.jaharmi.munki.OracleJava7JDK</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
