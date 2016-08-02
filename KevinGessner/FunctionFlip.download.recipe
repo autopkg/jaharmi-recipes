@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of FunctionFlip.</string>
+	<key>Identifier</key>
+	<string>com.github.jaharmi.download.FunctionFlip</string>
+	<key>Input</key>
+	<dict>
+	    <key>PRODUCT_BASE_URL</key>
+	    <string>http://kevingessner.com</string>
+	    <key>PRODUCT_DOWNLOAD_URL</key>
+	    <string>%PRODUCT_BASE_URL%/software/functionflip/</string>
+        <!-- 
+        <a href="/public/downloads/FunctionFlip/2.2.3/FunctionFlip.prefPane.zip" class="download">Download FunctionFlip</a>
+         -->
+		<key>PRODUCT_RE_PATTERN</key>
+		<string>.a href="(/public/downloads/FunctionFlip/[0-9\.]+/FunctionFlip.prefPane.zip)</string>
+		<key>PRODUCT_VERSION_RE_PATTERN</key>
+		<string>.a href="/public/downloads/FunctionFlip/([0-9\.]+)/FunctionFlip.prefPane.zip</string>
+		<key>NAME</key>
+		<string>FunctionFlip</string>
+	</dict>
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
+	<key>Process</key>
+	<array>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%PRODUCT_DOWNLOAD_URL%</string>
+                <key>re_pattern</key>
+                <string>%PRODUCT_VERSION_RE_PATTERN%</string>
+                <key>result_output_var_name</key>
+                <string>version</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%PRODUCT_DOWNLOAD_URL%</string>
+                <key>re_pattern</key>
+                <string>%PRODUCT_RE_PATTERN%</string>
+                <key>result_output_var_name</key>
+                <string>this_download</string>
+            </dict>
+        </dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.zip</string>
+				<key>url</key>
+				<string>%PRODUCT_BASE_URL%%this_download%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%.prefPane/Contents/Info.plist</string>
+                <key>plist_version_key</key>
+                <string>CFBundleVersion</string>
+            </dict>
+        </dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+	</array>
+</dict>
+</plist>
