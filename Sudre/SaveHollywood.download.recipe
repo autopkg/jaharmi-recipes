@@ -21,7 +21,7 @@
 		<string>.a href="//(binaries.openttd.org/releases/[0-9\.]+/openttd-[0-9\.]+-macosx-universal.zip)"</string>
  -->
 		<key>DOWNLOAD_URL</key>
-		<string>http://s.sudre.free.fr/Software/files/%NAME%.dmg</string>
+		<string>http://s.sudre.free.fr/Software/files/SaveHollywood.dmg</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
@@ -59,7 +59,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%pathname%/%NAME%.saver/Contents/Info.plist</string>
+				<string>%pathname%/SaveHollywood.saver/Contents/Info.plist</string>
 				<key>plist_version_key</key>
 				<string>CFBundleShortVersionString</string>
 			</dict>
