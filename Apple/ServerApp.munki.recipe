@@ -41,6 +41,7 @@
             <key>postinstall_script</key>
             <string>#!/bin/bash
 
+# Server setup script used with permission
 # Credit to @rtrouton
 # https://gist.github.com/rtrouton/c09f8ed541d330c4c7d4
 
