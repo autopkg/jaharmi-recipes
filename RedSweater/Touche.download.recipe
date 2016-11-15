@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the current release version of Touché.</string>
+    <key>Identifier</key>
+    <string>com.github.jaharmi.download.Touché</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Touché</string>
+        <key>SPARKLE_FEED_URL</key>
+        <string>https://red-sweater.com/touche/appcast.php</string>
+		<key>PRODUCT_DOWNLOAD_URL</key>
+		<string>https://red-sweater.com/touche</string>
+		<key>PRODUCT_RE_PATTERN</key>
+		<string>.a href="(http://redsweater.s3.amazonaws.com/Touche1.0.zip)".Free Download./a.</string>
+<!-- Original HTML download link
+    <a href="http://redsweater.s3.amazonaws.com/Touche1.0.zip">Free Download</a>
+ -->
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+<!-- Problem with SparkleUpdateInfoProvider
+        <dict>
+            <key>Processor</key>
+            <string>SparkleUpdateInfoProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>appcast_url</key>
+                <string>%SPARKLE_FEED_URL%</string>
+            </dict>
+        </dict>
+ -->
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>%PRODUCT_RE_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>url</string>
+				<key>url</key>
+				<string>%PRODUCT_DOWNLOAD_URL%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>filename</key>
+                <string>%NAME%.zip</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+		</dict>
+<!-- Problem with CodeSignatureVerifier
+        <dict>   
+            <key>Processor</key>   
+            <string>CodeSignatureVerifier</string>   
+            <key>Arguments</key>   
+            <dict>   
+                <key>input_path</key>   
+                <string>%pathname%</string>
+				<key>requirement</key>
+                <string>identifier "com.red-sweater.touche" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "493CVA9A35"</string>
+            </dict>
+        </dict>
+ -->
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications/%NAME%.app/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleShortVersionString</string>
+			</dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+		</dict>
+    </array>
+</dict>
+</plist>
