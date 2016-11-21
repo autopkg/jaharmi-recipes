@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created with Recipe Robot v1.0.2 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Description</key>
+	<string>Downloads the latest version of iCloud Control and copies it to your DeployStudio packages.</string>
+	<key>Identifier</key>
+	<string>com.github.jaharmi.ds.iCloudControl</string>
+	<key>Input</key>
+	<dict>
+		<key>DS_NAME</key>
+		<string>%NAME%</string>
+		<key>DS_PKGS_PATH</key>
+		<string>/Users/jeremy</string>
+		<key>NAME</key>
+		<string>iCloud Control</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.6.1</string>
+	<key>ParentRecipe</key>
+	<string>com.github.jaharmi.pkg.iCloudControl</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>predicate</key>
+				<string>new_package_request == FALSE</string>
+			</dict>
+			<key>Processor</key>
+			<string>StopProcessingIf</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%DS_PKGS_PATH%/%DS_NAME%.pkg</string>
+				<key>overwrite</key>
+				<true/>
+				<key>source_path</key>
+				<string>%pkg_path%</string>
+			</dict>
+			<key>Processor</key>
+			<string>Copier</string>
+		</dict>
+	</array>
+</dict>
+</plist>
