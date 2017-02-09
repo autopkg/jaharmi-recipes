@@ -9,7 +9,7 @@
 	<key>Input</key>
 	<dict>
 		<key>PRODUCT_DOWNLOAD_URL</key>
-		<string>http://www.plethra.com/downloads/</string>
+		<string>https://www.plethra.com/downloads/</string>
 		<key>NAME</key>
 		<string>audio|acacia:server</string>
 		<key>PRODUCT_RE_PATTERN</key>
