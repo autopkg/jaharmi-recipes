@@ -6,54 +6,25 @@
     <string>Downloads the current release version of Myth II: Soulblighter from Project Magma.</string>
     <key>Identifier</key>
     <string>com.github.jaharmi.download.ProjectMagma.Myth2</string>
+    <key>ParentIdentifier</key>
+    <string>com.github.jaharmi.download.ProjectMagma</string>
     <key>Input</key>
     <dict>
-        <key>url</key>
-        <string>http://projectmagma.net/downloads/</string>
+        <key>PRODUCT_NAME</key>
+        <string>Myth II</string>
+        <key>PRODUCT_DISPLAY_NAME</key>
+        <string>%PRODUCT_NAME%: Soulblighter</string>
+        <key>PRODUCT_DIRECTORY_RE_PATTERN</key>
+        <string>.a href="(myth2_\d+)".Myth II \d+.\d+.\d+./a.</string>
+        <key>PRODUCT_VERSION_RE_PATTERN</key>
+        <string>.a href="myth2_\d+">%PRODUCT_NAME% (\d+.\d+.\d+)./a.</string>
+        <key>PRODUCT_RE_PATTERN</key>
+        <string>.a href="(http://tain.totalcodex.net/items/download/myth-ii-.+-mac-os-x)">Mac OS X Installer</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>re_pattern</key>
-                <string>.a href="(myth2_\d+)".Myth II \d+.\d+.\d+./a.</string>
-                <key>result_output_var_name</key>
-                <string>myth_directory</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>http://projectmagma.net/downloads/%myth_directory%</string>
-                <key>re_pattern</key>
-                <string>.a href="(http://tain.totalcodex.net/items/download/myth-ii-.+-mac-os-x)">Mac OS X Installer</string>
-                <key>result_output_var_name</key>
-                <string>myth_download</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%myth_download%</string>
-                <key>filename</key>
-                <string>%myth_directory%.dmg</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-        </dict>
     </array>
 </dict>
 </plist>
