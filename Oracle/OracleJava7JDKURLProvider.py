@@ -32,15 +32,15 @@ BASE_URL = "".join([
 
 # URL to find the Java 7 JDK download cookie
 cookie_source_url = "".join([
-    'http://stackoverflow.com/questions/10268583/how-to-automate-',
-    'download-and-instalation-of-java-jdk-on-linux',
+    'http://stackoverflow.com/questions/10268583/',
+    'how-to-automate-download-and-instalation-of-java-jdk-on-linux',
 ])
 
 # ['jdk-7u40-macosx-x64.dmg'] = { "title":"Mac OS X x64", "size":"183.35 MB",
 # "filepath":"http://download.oracle.com/otn-pub/java/jdk/7u40-b43/jdk-7u40-macosx-x64.dmg"};
 jre_download_link = re.compile(
     r'\"filepath\":\"(?P<url>http://download.oracle.com/otn-pub/java/jdk'
-    r'/7u\d+-\w+/jdk-7u\d+-macosx-x64.dmg)\"'
+    r'/7u?\d+-\w+/jdk-7u?\d+-macosx-x64.dmg)\"'
 )
 
 
@@ -70,7 +70,7 @@ class OracleJava7JDKURLProvider(Processor):
         # The "cookie" named group within the pattern is the string of interest
         download_cookie_string = re.compile(
             r'--header \"Cookie: '
-            r'(?P<cookie>g.+\.com)\"'
+            r'(?P<cookie>.*oracle.*)\"'
         )
 
         # Request the URL that shows a working cookie string
