@@ -73,11 +73,11 @@ Saving time is a daily concern for system administrators, especially with the in
             <true/>
             <key>unattended_uninstall</key>
             <true/>
-			<key>supported_architectures</key>
-			<array>
-			   <string>i386</string>
-			   <string>x86_64</string>
-			</array>
+        <key>supported_architectures</key>
+        <array>
+            <string>i386</string>
+            <string>x86_64</string>
+        </array>
         </dict>
     </dict>
     <key>ParentRecipe</key>
@@ -94,8 +94,33 @@ Saving time is a daily concern for system administrators, especially with the in
             <string>MunkiInfoCreator</string>
         </dict>
         <dict>
+          <key>Processor</key>
+          <string>PkgRootCreator</string>
+          <key>Arguments</key>
+          <dict>
+            <key>pkgroot</key>
+            <string>%RECIPE_CACHE_DIR%/pkgroot</string>
+            <key>pkgdirs</key>
+            <dict>
+            </dict>
+          </dict>
+        </dict>
+        <dict>
             <key>Arguments</key>
             <dict>
+                <key>pkg_path</key>
+                <string>%pathname%/DeployStudioServer_v%version%.mpkg/Contents/Packages/deploystudioAdmin.pkg</string>
+                <key>extract_root</key>
+                <string>%pkgroot%</string>
+            </dict>
+            <key>Processor</key>
+            <string>PkgExtractor</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>faux_root</key>
+                <string>%pkgroot%</string>
                 <key>installs_item_paths</key>
                 <array>
                     <string>/Applications/Utilities/DeployStudio Admin.app</string>
@@ -103,6 +128,17 @@ Saving time is a daily concern for system administrators, especially with the in
             </dict>
             <key>Processor</key>
             <string>MunkiInstallsItemsCreator</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%pkgroot%</string>
+                </array>
+            </dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
         </dict>
         <dict>
             <key>Processor</key>
