@@ -94,17 +94,6 @@ Saving time is a daily concern for system administrators, especially with the in
             <string>MunkiInfoCreator</string>
         </dict>
         <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>installs_item_paths</key>
-                <array>
-                    <string>/Applications/Utilities/DeployStudio Admin.app</string>
-                </array>
-            </dict>
-            <key>Processor</key>
-            <string>MunkiInstallsItemsCreator</string>
-        </dict>
-        <dict>
             <key>Processor</key>
             <string>MunkiPkginfoMerger</string>
         </dict>
