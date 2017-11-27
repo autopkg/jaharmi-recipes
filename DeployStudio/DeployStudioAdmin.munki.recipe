@@ -1,113 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-    <key>Input</key>
     <dict>
-        <key>IDENTIFIER</key>
-        <string>com.github.jaharmi.munki.DeployStudioAdmin</string>
-        <key>NAME</key>
-        <string>DeployStudioAdmin</string>
-        <key>MUNKI_REPO_SUBDIR</key>
-        <string>DeployStudio</string>
-        <key>pkginfo</key>
+        <key>Input</key>
         <dict>
-            <key>catalogs</key>
-            <array>
-                <string>testing</string>
-            </array>
-            <key>description</key>
-            <string>
-&lt;html&gt;
-&lt;p&gt;
-&lt;strong&gt;
-This installation includes the DeployStudio Admin tools &lt;em&gt;only&lt;/em&gt;.
-&lt;/strong&gt;
-These tools enable administrators to configure a DeployStudio Server remotely.
-&lt;/p&gt;
-&lt;p&gt;
-Saving time is a daily concern for system administrators, especially with the increase of minor interventions requested by end-users: accidentally modified system preferences, third-party applications instability or misconfigured, wrong access rights, viruses, etc... OS X is stable and robust but the capacity to (re)install completely a workstation or a server in a few minutes following a preset workflow that automatically restores the right disk image, configures and backs up what was planned by the administrator is a real benefit in terms of time and money. DeployStudio was designed this way, in order to manage flawlessly large deployments of workstations, servers and cluster nodes.
-&lt;/p&gt;
-&lt;/html&gt;
-    </string>
-            <key>display_name</key>
-            <string>DeployStudio Admin</string>
-            <key>installer_choices_xml</key>
-            <array>
-                <dict>
-                    <key>attributeSetting</key>
-                    <integer>0</integer>
-                    <key>choiceAttribute</key>
-                    <string>selected</string>
-                    <key>choiceIdentifier</key>
-                    <string>pcruntime</string>
-                </dict>
-                <dict>
-                    <key>attributeSetting</key>
-                    <integer>1</integer>
-                    <key>choiceAttribute</key>
-                    <string>selected</string>
-                    <key>choiceIdentifier</key>
-                    <string>admin</string>
-                </dict>
-                <dict>
-                    <key>attributeSetting</key>
-                    <integer>1</integer>
-                    <key>choiceAttribute</key>
-                    <string>selected</string>
-                    <key>choiceIdentifier</key>
-                    <string>choice10</string>
-                </dict>
-                <dict>
-                    <key>attributeSetting</key>
-                    <integer>0</integer>
-                    <key>choiceAttribute</key>
-                    <string>selected</string>
-                    <key>choiceIdentifier</key>
-                    <string>choice12</string>
-                </dict>
-            </array>
-            <key>name</key>
-            <string>%NAME%</string>
-            <key>unattended_install</key>
-            <true/>
-            <key>unattended_uninstall</key>
-            <true/>
-			<key>supported_architectures</key>
-			<array>
-			   <string>i386</string>
-			   <string>x86_64</string>
-			</array>
+            <key>IDENTIFIER</key>
+            <string>com.github.jaharmi.munki.DeployStudioAdmin</string>
+            <key>NAME</key>
+            <string>DeployStudioAdmin</string>
+            <key>MUNKI_REPO_SUBDIR</key>
+            <string>DeployStudio</string>
+            <key>pkginfo</key>
+            <dict>
+                <key>catalogs</key>
+                <array>
+                    <string>testing</string>
+                </array>
+                <key>description</key>
+                <string>
+    &lt;html&gt;
+    &lt;p&gt;
+    &lt;strong&gt;
+    This installation includes the DeployStudio Admin tools &lt;em&gt;only&lt;/em&gt;.
+    &lt;/strong&gt;
+    These tools enable administrators to configure a DeployStudio Server remotely.
+    &lt;/p&gt;
+    &lt;p&gt;
+    Saving time is a daily concern for system administrators, especially with the increase of minor interventions requested by end-users: accidentally modified system preferences, third-party applications instability or misconfigured, wrong access rights, viruses, etc... OS X is stable and robust but the capacity to (re)install completely a workstation or a server in a few minutes following a preset workflow that automatically restores the right disk image, configures and backs up what was planned by the administrator is a real benefit in terms of time and money. DeployStudio was designed this way, in order to manage flawlessly large deployments of workstations, servers and cluster nodes.
+    &lt;/p&gt;
+    &lt;/html&gt;
+                </string>
+                <key>display_name</key>
+                <string>DeployStudio Admin</string>
+                <key>installer_choices_xml</key>
+                <array>
+                    <dict>
+                        <key>attributeSetting</key>
+                        <integer>0</integer>
+                        <key>choiceAttribute</key>
+                        <string>selected</string>
+                        <key>choiceIdentifier</key>
+                        <string>pcruntime</string>
+                    </dict>
+                    <dict>
+                        <key>attributeSetting</key>
+                        <integer>1</integer>
+                        <key>choiceAttribute</key>
+                        <string>selected</string>
+                        <key>choiceIdentifier</key>
+                        <string>admin</string>
+                    </dict>
+                    <dict>
+                        <key>attributeSetting</key>
+                        <integer>1</integer>
+                        <key>choiceAttribute</key>
+                        <string>selected</string>
+                        <key>choiceIdentifier</key>
+                        <string>choice10</string>
+                    </dict>
+                    <dict>
+                        <key>attributeSetting</key>
+                        <integer>0</integer>
+                        <key>choiceAttribute</key>
+                        <string>selected</string>
+                        <key>choiceIdentifier</key>
+                        <string>choice12</string>
+                    </dict>
+                </array>
+                <key>name</key>
+                <string>%NAME%</string>
+                <key>unattended_install</key>
+                <true/>
+                <key>unattended_uninstall</key>
+                <true/>
+                <key>supported_architectures</key>
+                <array>
+                    <string>i386</string>
+                    <string>x86_64</string>
+                </array>
+            </dict>
         </dict>
+        <key>ParentRecipe</key>
+        <string>com.github.jaharmi.download.DeployStudio</string>
+        <key>Process</key>
+        <array>
+            <dict>
+                <key>Arguments</key>
+                <dict>
+                    <key>pkg_path</key>
+                    <string>%pathname%</string>
+                </dict>
+                <key>Processor</key>
+                <string>MunkiInfoCreator</string>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>FlatPkgUnpacker</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>flat_pkg_path</key>
+                    <string>%pathname%/*.pkg</string>
+                    <key>destination_path</key>
+                    <string>%RECIPE_CACHE_DIR%/unpack</string>
+                    <key>purge_destination</key>
+                    <true/>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>PkgRootCreator</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>pkgroot</key>
+                    <string>%RECIPE_CACHE_DIR%/root</string>
+                    <key>pkgdirs</key>
+                    <dict>
+                        <key>Applications</key>
+                        <string>0775</string>
+                        <key>Applications/Utilities</key>
+                        <string>0775</string>
+                    </dict>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>PkgPayloadUnpacker</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>pkg_payload_path</key>
+                    <string>%RECIPE_CACHE_DIR%/unpack/DeployStudioAdmin.pkg/Payload</string>
+                    <key>destination_path</key>
+                    <string>%pkgroot%/Applications/Utilities</string>
+                    <key>purge_destination</key>
+                    <true/>
+                </dict>
+            </dict>
+            <dict>
+                <key>Arguments</key>
+                <dict>
+                    <key>faux_root</key>
+                    <string>%pkgroot%</string>
+                    <key>installs_item_paths</key>
+                    <array>
+                        <string>/Applications/Utilities/DeployStudio Admin.app</string>
+                    </array>
+                </dict>
+                <key>Processor</key>
+                <string>MunkiInstallsItemsCreator</string>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>MunkiPkginfoMerger</string>
+            </dict>
+            <dict>
+                <key>Arguments</key>
+                <dict>
+                    <key>pkg_path</key>
+                    <string>%pathname%</string>
+                    <key>repo_subdirectory</key>
+                    <string>%MUNKI_REPO_SUBDIR%</string>
+                </dict>
+                <key>Processor</key>
+                <string>MunkiImporter</string>
+            </dict>
+        </array>
     </dict>
-    <key>ParentRecipe</key>
-    <string>com.github.jaharmi.download.DeployStudio</string>
-    <key>Process</key>
-    <array>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>pkg_path</key>
-                <string>%pathname%</string>
-            </dict>
-            <key>Processor</key>
-            <string>MunkiInfoCreator</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiPkginfoMerger</string>
-        </dict>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>pkg_path</key>
-                <string>%pathname%</string>
-                <key>repo_subdirectory</key>
-                <string>%MUNKI_REPO_SUBDIR%</string>
-            </dict>
-            <key>Processor</key>
-            <string>MunkiImporter</string>
-        </dict>
-    </array>
-</dict>
 </plist>
