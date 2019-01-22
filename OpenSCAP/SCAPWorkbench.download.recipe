@@ -10,10 +10,12 @@
 	<string>com.github.jaharmi.download.SCAPWorkbench</string>
 	<key>Input</key>
 	<dict>
+		<key>APP_FILENAME</key>
+		<string>scap-workbench</string>
 		<key>GITHUB_REPO</key>
 		<string>OpenSCAP/scap-workbench</string>
 		<key>NAME</key>
-		<string>scap-workbench</string>
+		<string>SCAP Workbench</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.6.1</string>
@@ -32,7 +34,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%-%version%.dmg</string>
+				<string>%APP_FILENAME%-%version%.dmg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
