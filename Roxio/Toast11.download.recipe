@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Toast11Titanium</string>
         <key>SPARKLE_FEED_URL</key>
-        <string>http://img.roxio.com/updaters/toast/v11/appcast_toast.xml</string>
+        <string>https://img.roxio.com/updaters/toast/v11/appcast_toast.xml</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
