@@ -13,7 +13,7 @@
 		<key>NAME</key>
 		<string>TypeIt4Me</string>
 		<key>SPARKLE_FEED_URL</key>
-		<string>http://ettoresoftware.com/download/TypeIt4MeAppcast.xml</string>
+		<string>https://ettoresoftware.com/download/TypeIt4MeAppcast.xml</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
