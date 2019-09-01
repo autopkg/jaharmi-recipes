@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 
 from __future__ import absolute_import
-import urllib2
 
 from autopkglib import Processor, ProcessorError
 
+try:
+    from urllib.request import urlopen  # For Python 3
+except ImportError:
+    from urllib2 import urlopen  # For Python 2
 
 __all__ = ["XRGURLProvider"]
 
@@ -38,7 +41,7 @@ class XRGURLProvider(Processor):
     def get_xrg_version(self, update_url):
         """Find the latest version of XRG and output as a string."""
         try:
-            f = urllib2.urlopen(update_url)
+            f = urlopen(update_url)
             html = f.read()
             # The version is currently the only string in the text file at the
             # update URL, so capture that string

@@ -15,7 +15,6 @@
 # limitations under the License.
 
 from __future__ import absolute_import
-import urllib2
 import sys
 from collections import defaultdict
 import urlparse
@@ -23,6 +22,11 @@ import os
 sys.path.append("/usr/local/munki")
 from munkilib import FoundationPlist as plistlib
 from autopkglib import Processor, ProcessorError
+
+try:
+    from urllib.request import urlopen  # For Python 3
+except ImportError:
+    from urllib2 import urlopen  # For Python 2
 
 __all__ = ["LaunchBar5URLProvider"]
 
@@ -52,7 +56,7 @@ class LaunchBar5URLProvider(Processor):
     def get_update_feed_data(self, update_url):
         """Find the latest version of LaunchBar and output as a string."""
         try:
-            f = urllib2.urlopen(update_url)
+            f = urlopen(update_url)
             html = f.read()
             plist_data = plistlib.readPlistFromString(html)
             f.close()
