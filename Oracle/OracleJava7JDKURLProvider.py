@@ -15,13 +15,13 @@
 # limitations under the License.
 
 from __future__ import absolute_import
+
+import os
 import re
 import urllib2
 import urlparse
-import os
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["OracleJava7JDKURLProvider"]
 
