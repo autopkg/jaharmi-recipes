@@ -131,7 +131,7 @@ class OracleJava7JDKURLProvider(Processor):
         # Find the version string in the last dirname component
         download_dir_version = os.path.basename(download_dirname)
         # Split on the non-numeric bits
-        download_dir_version_split = re.split('\D+', download_dir_version)
+        download_dir_version_split = re.split(r'\D+', download_dir_version)
         # Insert 1
         download_dir_version_split.insert(0, "1")
         # Reassemble by joining with periods
