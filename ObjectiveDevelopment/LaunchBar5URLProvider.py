@@ -15,12 +15,12 @@
 # limitations under the License.
 
 from __future__ import absolute_import
-import sys
-from collections import defaultdict
-import urlparse
+
 import os
-sys.path.append("/usr/local/munki")
-from munkilib import FoundationPlist as plistlib
+import urlparse
+from collections import defaultdict
+
+import FoundationPlist
 from autopkglib import Processor, ProcessorError
 
 try:
@@ -58,7 +58,7 @@ class LaunchBar5URLProvider(Processor):
         try:
             f = urlopen(update_url)
             html = f.read()
-            plist_data = plistlib.readPlistFromString(html)
+            plist_data = FoundationPlist.readPlistFromString(html)
             f.close()
         except BaseException as e:
             raise ProcessorError("Can't download %s: %s" % (update_url, e))
