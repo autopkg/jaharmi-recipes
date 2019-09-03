@@ -60,7 +60,7 @@ class LaunchBar5URLProvider(Processor):
             html = f.read()
             plist_data = FoundationPlist.readPlistFromString(html)
             f.close()
-        except BaseException as e:
+        except Exception as e:
             raise ProcessorError("Can't download %s: %s" % (update_url, e))
         return plist_data
 

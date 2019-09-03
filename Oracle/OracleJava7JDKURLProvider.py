@@ -81,7 +81,7 @@ class OracleJava7JDKURLProvider(Processor):
             f = opener.open(cookie_source_url)
             html = f.read()
             f.close()
-        except BaseException as err:
+        except Exception as err:
             raise ProcessorError("Can't download %s: %s" % (cookie_source_url, err))
 
         # Search the HTML for the cookie string regular expression
@@ -105,7 +105,7 @@ class OracleJava7JDKURLProvider(Processor):
             f = opener.open(base_url)
             html = f.read()
             f.close()
-        except BaseException as err:
+        except Exception as err:
             raise ProcessorError("Can't download %s: %s" % (base_url, err))
 
         # Search for JDK downloads link in the HTML

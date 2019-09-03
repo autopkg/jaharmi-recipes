@@ -49,7 +49,7 @@ class XRGURLProvider(Processor):
             # perform more processing here
             download_version_string = html.strip()
             f.close()
-        except BaseException as e:
+        except Exception as e:
             raise ProcessorError("Can't download %s: %s" % (update_url, e))
         return download_version_string
 
