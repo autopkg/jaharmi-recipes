@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Description</key>
+	<string>Downloads the latest version of SecuritySpy and imports it into Munki.</string>
+	<key>Identifier</key>
+	<string>com.github.jaharmi.munki.SecuritySpy</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>bensoftware/bensoftware_securityspy</string>
+		<key>NAME</key>
+		<string>SecuritySpy</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+				<string>production</string>
+			</array>
+			<key>description</key>
+			<string>SecuritySpy is a multi-camera video surveillance application for the Macintosh. This software will enable you to set up a comprehensive and effective surveillance system quickly and easily.</string>
+			<key>developer</key>
+			<string>Ben Software Ltd</string>
+			<key>display_name</key>
+			<string>SecuritySpy</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.jaharmi.download.SecuritySpy</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
