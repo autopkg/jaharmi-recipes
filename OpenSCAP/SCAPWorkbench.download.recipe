@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v1.0.2 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
 	<string>Downloads the latest version of SCAP Workbench.</string>
 	<key>Identifier</key>
@@ -12,8 +12,8 @@
 	<dict>
 		<key>APP_FILENAME</key>
 		<string>scap-workbench</string>
-		<key>DOWNLOAD_URL</key>
-		<string>https://www.open-scap.org/tools/scap-workbench/download-osx</string>
+		<key>GITHUB_REPO</key>
+		<string>OpenSCAP/scap-workbench</string>
 		<key>NAME</key>
 		<string>SCAP Workbench</string>
 	</dict>
@@ -24,10 +24,17 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>github_repo</key>
+				<string>%GITHUB_REPO%</string>
+			</dict>
+			<key>Processor</key>
+			<string>GitHubReleasesInfoProvider</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
 				<key>filename</key>
-				<string>%NAME%.dmg</string>
-				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<string>%APP_FILENAME%-%version%.dmg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>

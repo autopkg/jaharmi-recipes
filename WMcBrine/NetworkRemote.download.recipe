@@ -13,7 +13,7 @@
 		<key>NAME</key>
 		<string>Network Remote</string>
 		<key>PRODUCT_DOWNLOAD_URL</key>
-		<string>http://wmcbrine.com/tivo/</string>
+		<string>https://wmcbrine.com/tivo/</string>
 		<key>PRODUCT_RE_PATTERN</key>
 		<string>.a class="dl" href="(network-remote-[0-9\.]+.dmg)</string>
 	</dict>
