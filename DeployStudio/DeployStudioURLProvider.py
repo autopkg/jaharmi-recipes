@@ -1,13 +1,7 @@
 #!/usr/bin/env python
 
-from __future__ import absolute_import
+from autopkglib import Processor, ProcessorError, URLGetter
 
-from autopkglib import Processor, ProcessorError
-
-try:
-    from urllib.request import urlopen  # For Python 3
-except ImportError:
-    from urllib2 import urlopen  # For Python 2
 
 __all__ = ["DeployStudioURLProvider"]
 
@@ -19,7 +13,7 @@ update_url = "http://www.deploystudio.com/Downloads/_dss.current"
 # http://www.deploystudio.com/get.php?fp=DeployStudioServer_v1.6.3.dmg
 
 
-class DeployStudioURLProvider(Processor):
+class DeployStudioURLProvider(URLGetter):
     description = "Provides URL to the latest DeployStudio download."
     input_variables = {
     }
@@ -37,21 +31,6 @@ class DeployStudioURLProvider(Processor):
 
     __doc__ = description
 
-    def get_deploystudio_version(self, update_url):
-        """Find the latest version of DeployStudio and output as a string."""
-        try:
-            f = urlopen(update_url)
-            html = f.read()
-            # The version is currently the only string in the text file at the
-            # update URL, so capture that string
-            # If this should change in the future or more error checking is desired,
-            # perform more processing here
-            download_version_string = html.strip()
-            f.close()
-        except Exception as e:
-            raise ProcessorError("Can't download %s: %s" % (update_url, e))
-        return download_version_string
-
     def get_deploystudio_dmg_file(self, download_version):
         """Construct the name of the DeployStudio disk image file used in
         the download URL."""
@@ -68,7 +47,7 @@ class DeployStudioURLProvider(Processor):
         """Find and return a download URL."""
 
         # Get the string representing the requested DeployStudio version
-        download_version = self.get_deploystudio_version(update_url)
+        download_version = self.download(update_url).strip()
         self.env["version"] = download_version
         self.output("Found version %s" % self.env["version"])
 
