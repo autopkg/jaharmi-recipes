@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 
-import urllib2
-
-from autopkglib import Processor, ProcessorError
+from autopkglib import Processor, ProcessorError, URLGetter
 
 
 __all__ = ["XRGURLProvider"]
@@ -16,7 +14,7 @@ update_url = "http://download.gauchosoft.com/xrg/latest_version.txt"
 # http://download.gauchosoft.com/xrg/XRG-release-1.7.3.zip
 
 
-class XRGURLProvider(Processor):
+class XRGURLProvider(URLGetter):
     description = "Provides URL to the latest XRG download."
     input_variables = {
     }
@@ -33,21 +31,6 @@ class XRGURLProvider(Processor):
     }
 
     __doc__ = description
-
-    def get_xrg_version(self, update_url):
-        """Find the latest version of XRG and output as a string."""
-        try:
-            f = urllib2.urlopen(update_url)
-            html = f.read()
-            # The version is currently the only string in the text file at the
-            # update URL, so capture that string
-            # If this should change in the future or more error checking is desired,
-            # perform more processing here
-            download_version_string = html.strip()
-            f.close()
-        except BaseException as e:
-            raise ProcessorError("Can't download %s: %s" % (update_url, e))
-        return download_version_string
 
     def get_xrg_archive_file(self, download_version):
         """Construct the name of the XRG archive file used in
@@ -74,7 +57,7 @@ class XRGURLProvider(Processor):
         """Find and return a download URL."""
 
         # Get the string representing the requested XRG version
-        download_version = self.get_xrg_version(update_url)
+        download_version = self.download(update_url, text=True).strip()
         padded_version = self.pad_version(download_version)
         self.env["version"] = padded_version
         self.output("Found version %s" % self.env["version"])

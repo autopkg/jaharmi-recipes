@@ -14,14 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import urllib2
 import sys
 from collections import defaultdict
-import urlparse
 import os
 sys.path.append("/usr/local/munki")
 from munkilib import FoundationPlist as plistlib
-from autopkglib import Processor, ProcessorError
+from autopkglib import Processor, ProcessorError, URLGetter
 
 __all__ = ["LaunchBar5URLProvider"]
 
@@ -30,7 +28,7 @@ __all__ = ["LaunchBar5URLProvider"]
 update_url = "https://sw-update.obdev.at/update-feeds/launchbar-5.plist"
 
 
-class LaunchBar5URLProvider(Processor):
+class LaunchBar5URLProvider(URLGetter):
     description = "Provides URL to the latest LaunchBar 5 download."
     input_variables = {
     }
@@ -51,10 +49,8 @@ class LaunchBar5URLProvider(Processor):
     def get_update_feed_data(self, update_url):
         """Find the latest version of LaunchBar and output as a string."""
         try:
-            f = urllib2.urlopen(update_url)
-            html = f.read()
+            html = self.download(update_url)
             plist_data = plistlib.readPlistFromString(html)
-            f.close()
         except BaseException as e:
             raise ProcessorError("Can't download %s: %s" % (update_url, e))
         return plist_data
@@ -78,13 +74,6 @@ class LaunchBar5URLProvider(Processor):
         dmg_version = sw_release_data['BundleShortVersionString']
         return dmg_version
 
-    def get_download_filename(self, sw_update_url):
-        """Get the name of the LaunchBar download file from the download URL."""
-        sw_update_url_split = urlparse.urlsplit(sw_update_url)
-        dmg_filepath = sw_update_url_split.path
-        dmg_filename = os.path.basename(dmg_filepath)
-        return dmg_filename
-
     def main(self):
         """Find and return a download URL."""
 
@@ -106,7 +95,7 @@ class LaunchBar5URLProvider(Processor):
         self.output("Found version %s" % self.env["version"])
 
         # Get the filename of the disk image for the requested LaunchBar version
-        download_filename = self.get_download_filename(download_url)
+        download_filename = download_url.split('/')[-1]
         self.env["filename"] = download_filename
         self.output("Found download filename %s" % self.env["filename"])
 

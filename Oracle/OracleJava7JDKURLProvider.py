@@ -14,13 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from __future__ import absolute_import
+
+import os
 import re
 import urllib2
 import urlparse
-import os
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["OracleJava7JDKURLProvider"]
 
@@ -80,7 +81,7 @@ class OracleJava7JDKURLProvider(Processor):
             f = opener.open(cookie_source_url)
             html = f.read()
             f.close()
-        except BaseException as err:
+        except Exception as err:
             raise ProcessorError("Can't download %s: %s" % (cookie_source_url, err))
 
         # Search the HTML for the cookie string regular expression
@@ -104,7 +105,7 @@ class OracleJava7JDKURLProvider(Processor):
             f = opener.open(base_url)
             html = f.read()
             f.close()
-        except BaseException as err:
+        except Exception as err:
             raise ProcessorError("Can't download %s: %s" % (base_url, err))
 
         # Search for JDK downloads link in the HTML
@@ -130,7 +131,7 @@ class OracleJava7JDKURLProvider(Processor):
         # Find the version string in the last dirname component
         download_dir_version = os.path.basename(download_dirname)
         # Split on the non-numeric bits
-        download_dir_version_split = re.split('\D+', download_dir_version)
+        download_dir_version_split = re.split(r'\D+', download_dir_version)
         # Insert 1
         download_dir_version_split.insert(0, "1")
         # Reassemble by joining with periods
