@@ -17,9 +17,12 @@
 import sys
 from collections import defaultdict
 import os
-sys.path.append("/usr/local/munki")
-from munkilib import FoundationPlist as plistlib
 from autopkglib import Processor, ProcessorError, URLGetter
+
+try:
+    from plistlib import loads as readPlistFromString  # Python 3
+except ImportError:
+    from plistlib import readPlistFromString  # Python 2
 
 __all__ = ["LaunchBar5URLProvider"]
 
@@ -50,7 +53,7 @@ class LaunchBar5URLProvider(URLGetter):
         """Find the latest version of LaunchBar and output as a string."""
         try:
             html = self.download(update_url)
-            plist_data = plistlib.readPlistFromString(html)
+            plist_data = readPlistFromString(html)
         except BaseException as e:
             raise ProcessorError("Can't download %s: %s" % (update_url, e))
         return plist_data
