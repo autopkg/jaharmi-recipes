@@ -15,12 +15,7 @@
 		<key>NAME</key>
 		<string>Inform</string>
 		<key>PRODUCT_RE_PATTERN</key>
-		<string>.a href="/download/(content/.*/I7-[0-9][A-Z][0-9]{2}-OSX.dmg)</string>
-<!-- 
-		<a href="/download/content/6M62/I7-6M62-OSX.dmg">
-		http://inform7.com/download/content/6M62/I7-6M62-OSX.dmg
-		http://inform7.com/download/content/6M62/I7-6M62-OSX.dmg
- -->
+		<string>href="/apps/.*/I7-[0-9][A-Z][0-9]{2}-OSX(?:-Interim).dmg)</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
@@ -43,7 +38,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>%PRODUCT_DOWNLOAD_URL%%FILE_DOWNLOAD_URL%</string>
+				<string>https://inform7.com/%FILE_DOWNLOAD_URL%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
