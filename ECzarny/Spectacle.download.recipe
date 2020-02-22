@@ -36,7 +36,7 @@
 				<string>%PRODUCT_DOWNLOAD_URL%</string>
 			</dict>
 			<key>Processor</key>
-			<string>CURLTextSearcher</string>
+			<string>URLTextSearcher</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
