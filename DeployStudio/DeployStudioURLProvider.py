@@ -47,7 +47,7 @@ class DeployStudioURLProvider(URLGetter):
         """Find and return a download URL."""
 
         # Get the string representing the requested DeployStudio version
-        download_version = self.download(update_url).strip()
+        download_version = self.download(update_url, text=True).strip()
         self.env["version"] = download_version
         self.output("Found version %s" % self.env["version"])
 
