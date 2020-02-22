@@ -2,16 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>Identifier</key>
+    <string>com.github.autopkg.munki.Acorn</string>
     <key>Input</key>
     <dict>
-        <key>IDENTIFIER</key>
-        <string>com.github.autopkg.munki.Acorn</string>
         <key>NAME</key>
         <string>Acorn</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps/Acorn</string>
         <key>SU_FEED_URL</key>
-        <string>https://secure.flyingmeat.com/download/acorn3update.xml</string>
+        <string>https://secure.flyingmeat.com/download/acorn4update.xml</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
@@ -21,7 +21,7 @@
             <key>description</key>
             <string>The image editor for humans. Everyone needs to edit images at some point, but not everyone has the time to learn complicated super pricey image editing programs. This is why we created Acorn. Add text and shapes to your digital pictures. Combine images together to create your own. Work with layers to touch up your favorite photos or make something new from scratch. Do all this and more with Acorn.</string>
             <key>display_name</key>
-            <string>Acorn 3</string>
+            <string>Acorn 4</string>
             <key>name</key>
             <string>%NAME%</string>
             <key>unattended_install</key>
