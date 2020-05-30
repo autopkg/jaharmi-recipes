@@ -10,6 +10,8 @@
 	<string>com.github.jaharmi.download.ripgrep</string>
 	<key>Input</key>
 	<dict>
+		<key>ASSET_REGEX</key>
+		<string>^.*apple.*$</string>
 		<key>GITHUB_REPO</key>
 		<string>BurntSushi/ripgrep</string>
 		<key>NAME</key>
@@ -22,6 +24,8 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>asset_regex</key>
+				<string>%ASSET_REGEX%</string>
 				<key>github_repo</key>
 				<string>%GITHUB_REPO%</string>
 			</dict>
