@@ -85,6 +85,7 @@
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
+<!--
 		<dict>
 			<key>Arguments</key>
 			<dict>
@@ -98,6 +99,7 @@
 			<key>Processor</key>
 			<string>Unarchiver</string>
 		</dict>
+-->
 		<dict>
 			<key>Arguments</key>
 			<dict>
