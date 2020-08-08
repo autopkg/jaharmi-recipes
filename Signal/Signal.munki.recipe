@@ -29,9 +29,9 @@
 			<key>developer</key>
 			<string>RIDDLE QUIET VENTURES, LLC</string>
 			<key>display_name</key>
-			<string>Signal</string>
+			<string>%MUNKI_PKGINFO_DISPLAYNAME%</string>
 			<key>name</key>
-			<string>%NAME%</string>
+			<string>%MUNKI_PKGINFO_NAME%</string>
 			<key>unattended_install</key>
 			<true/>
 		</dict>
