@@ -12,6 +12,30 @@
 	<dict>
 		<key>NAME</key>
 		<string>Signal</string>
+		<key>PRODUCT_UPDATE_URL</key>
+		<string>https://updates.signal.org/desktop/latest-mac.yml</string>
+<!--
+		<string>https://signal.org/download/macos</string>
+-->
+        <key>PRODUCT_UPDATE_VERSION_RE_PATTERN</key>
+		<string>\s+-\surl:\ssignal-desktop-mac-(\d+\.\d+\.\d+)\.dmg</string>
+<!--
+		<string>.a href=\"https://updates\.signal\.org/desktop/signal-desktop-mac-(\d+\.\d+\.\d+)\.dmg\"</string>
+-->
+        <key>PRODUCT_UPDATE_RE_PATTERN</key>
+		<string>\s+-\surl:\s(signal-desktop-mac-\d+\.\d+\.\d+\.dmg)</string>
+<!--
+        <string>.a href=\"(https://updates\.signal\.org/desktop/signal-desktop-mac-\d+\.\d+\.\d+\.dmg)\"</string>
+-->
+		<key>DOWNLOAD_BASE_URL</key>
+		<string>https://updates.signal.org/desktop</string>
+		<key>CODE_SIGNATURE_REQUIREMENT</key>
+		<string>identifier "org.whispersystems.signal-desktop" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = U68MSDN6DR</string>
+<!--
+		<string>identifier "org.whispersystems.signal-desktop" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = U68MSDN6DR</string>
+-->
+		<key>VERSION_COMPARISON_KEY</key>
+		<string>CFBundleShortVersionString</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
