@@ -42,6 +42,7 @@
 	<string>com.github.jaharmi.download.Signal</string>
 	<key>Process</key>
 	<array>
+<!--
 		<dict>
 			<key>Arguments</key>
 			<dict>
@@ -53,6 +54,7 @@
 			<key>Processor</key>
 			<string>DmgCreator</string>
 		</dict>
+-->
 		<dict>
 			<key>Arguments</key>
 			<dict>
