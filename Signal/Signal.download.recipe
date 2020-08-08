@@ -10,10 +10,32 @@
 	<string>com.github.jaharmi.download.Signal</string>
 	<key>Input</key>
 	<dict>
-		<key>DOWNLOAD_URL</key>
-		<string>https://updates.signal.org/desktop/Signal-mac-1.0.38.zip</string>
 		<key>NAME</key>
 		<string>Signal</string>
+		<key>PRODUCT_UPDATE_URL</key>
+		<string>https://updates.signal.org/desktop/latest-mac.yml</string>
+<!--
+		<string>https://signal.org/download/macos</string>
+-->
+        <key>PRODUCT_UPDATE_VERSION_RE_PATTERN</key>
+		<string>\s+-\surl:\ssignal-desktop-mac-(\d+\.\d+\.\d+)\.dmg</string>
+<!--
+		<string>.a href=\"https://updates\.signal\.org/desktop/signal-desktop-mac-(\d+\.\d+\.\d+)\.dmg\"</string>
+-->
+        <key>PRODUCT_UPDATE_RE_PATTERN</key>
+		<string>\s+-\surl:\s(signal-desktop-mac-\d+\.\d+\.\d+\.dmg)</string>
+<!--
+        <string>.a href=\"(https://updates\.signal\.org/desktop/signal-desktop-mac-\d+\.\d+\.\d+\.dmg)\"</string>
+-->
+		<key>DOWNLOAD_BASE_URL</key>
+		<string>https://updates.signal.org/desktop</string>
+		<key>CODE_SIGNATURE_REQUIREMENT</key>
+		<string>identifier "org.whispersystems.signal-desktop" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = U68MSDN6DR</string>
+<!--
+		<string>identifier "org.whispersystems.signal-desktop" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = U68MSDN6DR</string>
+-->
+		<key>VERSION_COMPARISON_KEY</key>
+		<string>CFBundleShortVersionString</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
@@ -22,10 +44,39 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>filename</key>
-				<string>%NAME%.zip</string>
 				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<string>%PRODUCT_UPDATE_URL%</string>
+				<key>re_pattern</key>
+				<string>%PRODUCT_UPDATE_VERSION_RE_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>%version%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%PRODUCT_UPDATE_URL%</string>
+				<key>re_pattern</key>
+				<string>%PRODUCT_UPDATE_RE_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>DOWNLOAD_FILE_URL</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%DOWNLOAD_BASE_URL%/%DOWNLOAD_FILE_URL%</string>
+				<key>curl_opts</key>
+				<array>
+					<string>--compressed</string>
+					<string>--location</string>
+				</array>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -34,6 +85,7 @@
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
+<!--
 		<dict>
 			<key>Arguments</key>
 			<dict>
@@ -47,13 +99,14 @@
 			<key>Processor</key>
 			<string>Unarchiver</string>
 		</dict>
+-->
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Signal.app</string>
+				<string>%pathname%/Signal.app</string>
 				<key>requirement</key>
-				<string>identifier "org.whispersystems.signal-desktop" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = U68MSDN6DR</string>
+				<string>%CODE_SIGNATURE_REQUIREMENT%</string>
 			</dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
@@ -62,9 +115,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Signal.app/Contents/Info.plist</string>
+				<string>%pathname%/Signal.app/Contents/Info.plist</string>
 				<key>plist_version_key</key>
-				<string>CFBundleShortVersionString</string>
+				<string>%VERSION_COMPARISON_KEY%</string>
 			</dict>
 			<key>Processor</key>
 			<string>Versioner</string>
