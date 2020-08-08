@@ -48,6 +48,19 @@
 				<string>%NAME%.zip</string>
 				<key>url</key>
 				<string>%DOWNLOAD_URL%</string>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%PRODUCT_UPDATE_URL%</string>
+				<key>re_pattern</key>
+				<string>%PRODUCT_UPDATE_RE_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>DOWNLOAD_FILE_URL</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
