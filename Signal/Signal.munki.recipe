@@ -81,6 +81,21 @@
             <key>Processor</key>
             <string>Copier</string>
         </dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+                    <key>faux_root</key>
+                    <string>%pkgroot%</string>
+                    <key>installs_item_paths</key>
+                    <array>
+                        <string>/Applications/Signal.app</string>
+                    </array>
+				<key>version_comparison_key</key>
+				<string>%VERSION_COMPARISON_KEY%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiInstallsItemsCreator</string>
+		</dict>
         </dict>
 		<dict>
 			<key>Arguments</key>
