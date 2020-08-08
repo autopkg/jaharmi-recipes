@@ -67,6 +67,16 @@
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
 		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%DOWNLOAD_BASE_URL%/%DOWNLOAD_FILE_URL%</string>
+				<key>curl_opts</key>
+				<array>
+					<string>--compressed</string>
+					<string>--location</string>
+				</array>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
