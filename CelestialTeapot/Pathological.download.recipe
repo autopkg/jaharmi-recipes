@@ -13,7 +13,7 @@
 		<key>NAME</key>
 		<string>Pathological</string>
 		<key>SPARKLE_FEED_URL</key>
-		<string>http://celestialteapot.com/pathological/appcast/pathological.rss</string>
+		<string>https://celestialteapot.com/pathological/appcast/pathological.rss</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>

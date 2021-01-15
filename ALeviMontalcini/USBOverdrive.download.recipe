@@ -13,7 +13,7 @@
 		<key>DISPLAY_NAME</key>
 		<string>USB Overdrive</string>
 		<key>PRODUCT_RE_URL</key>
-		<string>http://www.senlick.com/html/01.01.html</string>
+		<string>https://www.senlick.com/html/01.01.html</string>
 		<key>PRODUCT_RE_PATTERN</key>
 		<string>.a href="\.\./(macsw/USB-Overdrive-[0-9\.]+.dmg)".USB Overdrive [0-9\.]+./a.</string>
 <!-- 
@@ -21,7 +21,7 @@
         <a href="../macsw/USB-Overdrive-32.dmg">USB Overdrive 3.2</a>
 -->
 		<key>PRODUCT_DOWNLOAD_URL</key>
-		<string>http://www.senlick.com</string>
+		<string>https://www.senlick.com</string>
 		<key>PRODUCT_VERSION_RE_URL</key>
 		<string>%PRODUCT_DOWNLOAD_URL%/html/01.01.html</string>
 		<key>PRODUCT_VERSION_RE_PATTERN</key>
