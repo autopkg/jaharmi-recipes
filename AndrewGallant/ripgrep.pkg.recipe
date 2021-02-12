@@ -54,7 +54,7 @@
             <key>Processor</key>
             <string>Unarchiver</string>
         </dict>
-]       <dict>
+        <dict>
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
