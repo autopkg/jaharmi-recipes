@@ -10,8 +10,6 @@
 	<string>com.github.jaharmi.pkg.Signal</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>org.whispersystems.signal-desktop</string>
 		<key>NAME</key>
 		<string>Signal</string>
 	</dict>

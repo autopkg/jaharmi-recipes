@@ -10,8 +10,6 @@
 	<string>com.github.jaharmi.pkg.SecuritySpy</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>com.bensoftware.SecuritySpy</string>
 		<key>NAME</key>
 		<string>SecuritySpy</string>
 	</dict>

@@ -10,8 +10,6 @@
 	<string>com.github.jaharmi.pkg.CaptureSync</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>com.bensoftware.CaptureSync</string>
 		<key>NAME</key>
 		<string>CaptureSync</string>
 	</dict>

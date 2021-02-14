@@ -10,8 +10,6 @@
 	<string>com.github.jaharmi.pkg.Forecast</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>fm.overcast.forecast-encoder</string>
 		<key>NAME</key>
 		<string>Forecast</string>
 	</dict>
