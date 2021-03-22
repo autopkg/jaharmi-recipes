@@ -10,8 +10,6 @@
 	<string>com.github.jaharmi.pkg.BalanceOpen</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>software.balanced.balance-open</string>
 		<key>NAME</key>
 		<string>BalanceOpen</string>
 	</dict>

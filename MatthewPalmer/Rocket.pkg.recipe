@@ -10,8 +10,6 @@
 	<string>com.github.jaharmi.pkg.Rocket</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>net.matthewpalmer.Rocket</string>
 		<key>NAME</key>
 		<string>Rocket</string>
 	</dict>

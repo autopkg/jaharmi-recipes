@@ -10,8 +10,6 @@
 	<string>com.github.jaharmi.pkg.Pathology</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>com.celestialteapot.direct.Pathology</string>
 		<key>NAME</key>
 		<string>Pathology</string>
 	</dict>

@@ -10,8 +10,6 @@
 	<string>com.github.jaharmi.pkg.Geekbench4</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>com.primatelabs.Geekbench4</string>
 		<key>NAME</key>
 		<string>Geekbench 4</string>
 	</dict>

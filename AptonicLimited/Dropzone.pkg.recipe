@@ -10,8 +10,6 @@
 	<string>com.github.jaharmi.pkg.Dropzone</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>com.aptonic.Dropzone3</string>
 		<key>NAME</key>
 		<string>Dropzone 3</string>
 	</dict>
