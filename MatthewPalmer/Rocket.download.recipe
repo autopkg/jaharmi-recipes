@@ -11,7 +11,7 @@
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL</key>
-		<string>https://dl.devmate.com/net.matthewpalmer.Rocket/Rocket.dmg</string>
+		<string>https://macrelease.matthewpalmer.net/Rocket.dmg</string>
 		<key>NAME</key>
 		<string>Rocket</string>
 	</dict>
