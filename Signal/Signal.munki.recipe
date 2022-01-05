@@ -5,7 +5,9 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Signal and imports it into Munki.</string>
+	<string>Downloads the latest version of Signal and imports it into Munki.
+	
+Signal is provided in different flavors, please specify PLATFORM_ARCH as needed in your override: "x64" for Intel code, "arm64" for M1 code or "universal" for a universal binary running on both platforms.</string>
 	<key>Identifier</key>
 	<string>com.github.jaharmi.munki.Signal</string>
 	<key>Input</key>
@@ -18,6 +20,8 @@
 		<string>Signal_Desktop</string>
 		<key>MUNKI_PKGINFO_DISPLAYNAME</key>
 		<string>Signal Desktop</string>
+		<key>PLATFORM_ARCH</key>
+		<string>universal</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>

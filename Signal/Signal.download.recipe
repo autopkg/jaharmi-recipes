@@ -18,14 +18,14 @@
 		<string>https://signal.org/download/macos</string>
 -->
         <key>PRODUCT_UPDATE_VERSION_RE_PATTERN</key>
-		<string>\s+-\surl:\ssignal-desktop-mac-(\d+\.\d+\.\d+)\.dmg</string>
+		<string>\s+-\surl:\ssignal-desktop-mac-%PLATFORM_ARCH%-(\d+\.\d+\.\d+)\.dmg</string>
 <!--
-		<string>.a href=\"https://updates\.signal\.org/desktop/signal-desktop-mac-(\d+\.\d+\.\d+)\.dmg\"</string>
+		<string>.a href=\"https://updates\.signal\.org/desktop/signal-desktop-mac-universal-(\d+\.\d+\.\d+)\.dmg\"</string>
 -->
         <key>PRODUCT_UPDATE_RE_PATTERN</key>
-		<string>\s+-\surl:\s(signal-desktop-mac-\d+\.\d+\.\d+\.dmg)</string>
+		<string>\s+-\surl:\s(signal-desktop-mac-%PLATFORM_ARCH%-\d+\.\d+\.\d+\.dmg)</string>
 <!--
-        <string>.a href=\"(https://updates\.signal\.org/desktop/signal-desktop-mac-\d+\.\d+\.\d+\.dmg)\"</string>
+        <string>.a href=\"(https://updates\.signal\.org/desktop/signal-desktop-mac-universal-\d+\.\d+\.\d+\.dmg)\"</string>
 -->
 		<key>DOWNLOAD_BASE_URL</key>
 		<string>https://updates.signal.org/desktop</string>
