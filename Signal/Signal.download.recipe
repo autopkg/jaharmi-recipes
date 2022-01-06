@@ -17,11 +17,6 @@
 <!--
 		<string>https://signal.org/download/macos</string>
 -->
-        <key>PRODUCT_UPDATE_VERSION_RE_PATTERN</key>
-		<string>\s+-\surl:\ssignal-desktop-mac-(\d+\.\d+\.\d+)\.dmg</string>
-<!--
-		<string>.a href=\"https://updates\.signal\.org/desktop/signal-desktop-mac-(\d+\.\d+\.\d+)\.dmg\"</string>
--->
         <key>PRODUCT_UPDATE_RE_PATTERN</key>
 		<string>\s+-\surl:\s(signal-desktop-mac-\d+\.\d+\.\d+\.dmg)</string>
 <!--
@@ -41,19 +36,6 @@
 	<string>1.0.0</string>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-				<string>%PRODUCT_UPDATE_URL%</string>
-				<key>re_pattern</key>
-				<string>%PRODUCT_UPDATE_VERSION_RE_PATTERN%</string>
-				<key>result_output_var_name</key>
-				<string>%version%</string>
-			</dict>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
-		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
