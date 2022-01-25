@@ -42,73 +42,9 @@
 	<string>com.github.jaharmi.download.Signal</string>
 	<key>Process</key>
 	<array>
-<!--
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>dmg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-				<key>dmg_root</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-			</dict>
 			<key>Processor</key>
-			<string>DmgCreator</string>
-		</dict>
--->
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>pkgroot</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
-                <key>pkgdirs</key>
-                <dict>
-                    <key>Applications</key>
-                    <string>0775</string>
-                </dict>
-            </dict>
-            <key>Processor</key>
-            <string>PkgRootCreator</string>
-        </dict>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>destination_path</key>
-                <string>%pkgroot%/Applications/Signal.app</string>
-                <key>source_path</key>
-                <string>%pathname%/Signal.app</string>
-				<key>overwrite</key>
-				<true/>
-            </dict>
-            <key>Processor</key>
-            <string>Copier</string>
-        </dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-                    <key>faux_root</key>
-                    <string>%pkgroot%</string>
-                    <key>installs_item_paths</key>
-                    <array>
-                        <string>/Applications/Signal.app</string>
-                    </array>
-				<key>version_comparison_key</key>
-				<string>%VERSION_COMPARISON_KEY%</string>
-			</dict>
-			<key>Processor</key>
-			<string>MunkiInstallsItemsCreator</string>
-		</dict>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>path_list</key>
-				<array>
-					<string>%pkgroot%</string>
-				</array>
-            </dict>
-            <key>Processor</key>
-            <string>PathDeleter</string>
-        </dict>
-		<dict>
+			<string>MunkiImporter</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
@@ -116,8 +52,6 @@
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
 		</dict>
 	</array>
 </dict>

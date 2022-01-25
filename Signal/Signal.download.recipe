@@ -2,125 +2,53 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Signal.</string>
+	<string>Downloads the latest universal version of Signal.</string>
 	<key>Identifier</key>
 	<string>com.github.jaharmi.download.Signal</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>Signal</string>
-		<key>PRODUCT_UPDATE_URL</key>
-		<string>https://updates.signal.org/desktop/latest-mac.yml</string>
-<!--
-		<string>https://signal.org/download/macos</string>
--->
-        <key>PRODUCT_UPDATE_VERSION_RE_PATTERN</key>
-		<string>\s+-\surl:\ssignal-desktop-mac-(\d+\.\d+\.\d+)\.dmg</string>
-<!--
-		<string>.a href=\"https://updates\.signal\.org/desktop/signal-desktop-mac-(\d+\.\d+\.\d+)\.dmg\"</string>
--->
-        <key>PRODUCT_UPDATE_RE_PATTERN</key>
-		<string>\s+-\surl:\s(signal-desktop-mac-\d+\.\d+\.\d+\.dmg)</string>
-<!--
-        <string>.a href=\"(https://updates\.signal\.org/desktop/signal-desktop-mac-\d+\.\d+\.\d+\.dmg)\"</string>
--->
-		<key>DOWNLOAD_BASE_URL</key>
-		<string>https://updates.signal.org/desktop</string>
-		<key>CODE_SIGNATURE_REQUIREMENT</key>
-		<string>identifier "org.whispersystems.signal-desktop" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = U68MSDN6DR</string>
-<!--
-		<string>identifier "org.whispersystems.signal-desktop" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = U68MSDN6DR</string>
--->
-		<key>VERSION_COMPARISON_KEY</key>
-		<string>CFBundleShortVersionString</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-				<string>%PRODUCT_UPDATE_URL%</string>
-				<key>re_pattern</key>
-				<string>%PRODUCT_UPDATE_VERSION_RE_PATTERN%</string>
-				<key>result_output_var_name</key>
-				<string>%version%</string>
-			</dict>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
-		</dict>
-		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>url</key>
-				<string>%PRODUCT_UPDATE_URL%</string>
 				<key>re_pattern</key>
-				<string>%PRODUCT_UPDATE_RE_PATTERN%</string>
-				<key>result_output_var_name</key>
-				<string>DOWNLOAD_FILE_URL</string>
+				<string>signal-desktop-mac-universal-.*.dmg</string>
+				<key>url</key>
+				<string>https://updates.signal.org/desktop/latest-mac.yml</string>
 			</dict>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
 		</dict>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-				<string>%DOWNLOAD_BASE_URL%/%DOWNLOAD_FILE_URL%</string>
-				<key>curl_opts</key>
-				<array>
-					<string>--compressed</string>
-					<string>--location</string>
-				</array>
-			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>https://updates.signal.org/desktop/%match%</string>
+			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
-<!--
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
-			</dict>
 			<key>Processor</key>
-			<string>Unarchiver</string>
-		</dict>
--->
-		<dict>
+			<string>CodeSignatureVerifier</string>
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
 				<string>%pathname%/Signal.app</string>
 				<key>requirement</key>
-				<string>%CODE_SIGNATURE_REQUIREMENT%</string>
+				<string>identifier "org.whispersystems.signal-desktop" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = U68MSDN6DR</string>
 			</dict>
-			<key>Processor</key>
-			<string>CodeSignatureVerifier</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>input_plist_path</key>
-				<string>%pathname%/Signal.app/Contents/Info.plist</string>
-				<key>plist_version_key</key>
-				<string>%VERSION_COMPARISON_KEY%</string>
-			</dict>
-			<key>Processor</key>
-			<string>Versioner</string>
 		</dict>
 	</array>
 </dict>
