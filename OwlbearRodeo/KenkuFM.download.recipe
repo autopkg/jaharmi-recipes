@@ -12,6 +12,8 @@
 	<dict>
 		<key>NAME</key>
 		<string>Kenku FM</string>
+		<key>ASSET_REGEX</key>
+		<string>kenku-fm-darwin-x64-[\d\.]+\.dmg$</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
@@ -21,7 +23,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>asset_regex</key>
-				<string>.*\.dmg$</string>
+				<string>%ASSET_REGEX%</string>
 				<key>github_repo</key>
 				<string>owlbear-rodeo/kenku-fm</string>
 			</dict>
