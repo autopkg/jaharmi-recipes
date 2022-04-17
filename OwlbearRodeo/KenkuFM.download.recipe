@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Kenku FM.</string>
 	<key>Identifier</key>
-	<string>com.jaharmi.download.KenkuFM</string>
+	<string>com.github.jaharmi.download.KenkuFM</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>

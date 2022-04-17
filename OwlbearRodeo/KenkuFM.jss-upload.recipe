@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Kenku FM and uploads the package to your JSS.</string>
 	<key>Identifier</key>
-	<string>com.jaharmi.jss-upload.KenkuFM</string>
+	<string>com.github.jaharmi.jss-upload.KenkuFM</string>
 	<key>Input</key>
 	<dict>
 		<key>CATEGORY</key>
@@ -18,7 +18,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.jaharmi.pkg.KenkuFM</string>
+	<string>com.github.jaharmi.pkg.KenkuFM</string>
 	<key>Process</key>
 	<array>
 		<dict>
