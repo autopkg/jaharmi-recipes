@@ -23,7 +23,13 @@
 				<string>testing</string>
 			</array>
 			<key>description</key>
-			<string>Online tabletop audio sharing for Discord</string>
+			<string>Online tabletop audio sharing for Discord.
+			
+Support Kenku FM via:
+
+- https://www.kenku.fm/
+- https://www.patreon.com/owlbearrodeo
+</string>
 			<key>developer</key>
 			<string>Mitchell McCaffrey</string>
 			<key>display_name</key>
