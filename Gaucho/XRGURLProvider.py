@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/local/autopkg/python
 
 from autopkglib import Processor, ProcessorError, URLGetter
 
