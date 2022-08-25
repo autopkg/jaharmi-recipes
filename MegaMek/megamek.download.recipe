@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of MegaMek.</string>
+	<key>Identifier</key>
+	<string>com.github.jaharmi.download.megamek</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>MegaMek</string>
+		<key>PRODUCT_NAME</key>
+		<string>MegaMek</string>
+		<key>PRODUCT_NAME_LOWER</key>
+		<string>megamek</string>
+        <key>MEGAMEK_ASSET_REGEX</key>
+        <string>.*megamek-[0-9\.]+\.tar\.gz</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>github_repo</key>
+				<string>%PRODUCT_NAME%/%PRODUCT_NAME_LOWER%</string>
+                <key>include_prereleases</key>
+                <false/>
+                <key>asset_regex</key>
+                <string>%MEGAMEK_ASSET_REGEX%</string>
+			</dict>
+			<key>Processor</key>
+			<string>GitHubReleasesInfoProvider</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%PRODUCT_NAME_LOWER%-%version%.tar.gz</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>archive_format</key>
+				<string>tar_gzip</string>
+			</dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+		</dict>
+	</array>
+</dict>
+</plist>
