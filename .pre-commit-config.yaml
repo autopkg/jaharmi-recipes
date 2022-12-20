@@ -1,6 +1,15 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
+  - repo: https://github.com/homebysix/pre-commit-macadmin
+    rev: v1.12.3
+    hooks:
+      - id: check-autopkg-recipes
+        args: ["--recipe-prefix=com.github.jaharmi.", "--strict", "--"]
+        exclude: ^Corel\/|Docker\/|^Quicksilver\/Quicksilver\.pkg\.recipe$
+      - id: forbid-autopkg-overrides
+        exclude: ^Corel\/
+      - id: forbid-autopkg-trust-info
 -   repo: https://github.com/pre-commit/pre-commit-hooks
       rev: v4.3.0
     hooks:
