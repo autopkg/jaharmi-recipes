@@ -26,7 +26,7 @@
 			</array>
 			<key>description</key>
 			<string>%PRODCT_NAME% makes it easy to share files, schedule meetings, synchronize contacts, develop software, host your own website, publish wikis, configure Mac, iPhone, and iPad devices, remotely access your network, and more.
-			
+
 %PRODCT_NAME% is an application you can add to macOS. Anyone can quickly and easily turn a Mac into a server that's perfect for home offices, businesses, schools, developers, and hobbyists alike.</string>
 			<key>developer</key>
 			<string>Apple</string>
@@ -58,7 +58,7 @@ if [[ ! -e "/Applications/Server.app/Contents/ServerRoot/usr/sbin/server" ]]; th
 fi
 
 # If the 'server' setup tool is located, script will proceed and run
-# the initial setup and configuration of OS X Server's services. 
+# the initial setup and configuration of OS X Server's services.
 
 if [[ -e "/Applications/Server.app/Contents/ServerRoot/usr/sbin/server" ]]; then
 
@@ -71,14 +71,14 @@ if [[ -e "/Applications/Server.app/Contents/ServerRoot/usr/sbin/server" ]]; then
   serverdotapp_user_image="/Library/User Pictures/Fun/Chalk.tif"
 
   create_temp_user() {
-  
+
     # Generate UID for user by identifying the numerically highest UID
     # currently in use on this machine then setting the "userUID" value
     # to be one number higher.
-    
+
     maxUID=$(/usr/bin/dscl . list /Users UniqueID | awk '{print $2}' | sort -ug | tail -1)
     userUID=$((maxUID+1))
-  
+
 	/usr/bin/dscl . create /Users/${serverdotapp_username}
 	/usr/bin/dscl . passwd /Users/${serverdotapp_username} ${serverdotapp_password}
 	/usr/bin/dscl . create /Users/${serverdotapp_username} UserShell ${serverdotapp_user_shell}
@@ -99,13 +99,13 @@ if [[ -e "/Applications/Server.app/Contents/ServerRoot/usr/sbin/server" ]]; then
 
   # Create temporary user to authorize Server setup
   # and give admin rights to that temporary user
-  
+
   create_temp_user
   promote_temp_user_to_admin
-  
+
   # Export temporary user's username and password as environment values.
   # This export will allow these values to be used by the expect section
-  
+
   export serverdotapp_setupadmin="$serverdotapp_username"
   export serverdotapp_setupadmin_password="$serverdotapp_password"
 
@@ -141,12 +141,12 @@ exit 0
 			<key>Processor</key>
 			<string>PackageRequired</string>
 		</dict>
-        <dict>   
-            <key>Processor</key>   
-            <string>CodeSignatureVerifier</string>   
-            <key>Arguments</key>   
-            <dict>   
-                <key>input_path</key>   
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
                 <string>%PKG%</string>
                 <key>expected_authority_names</key>
                 <array>
@@ -208,12 +208,12 @@ exit 0
                 <true/>
             </dict>
         </dict>
-        <dict>   
-            <key>Processor</key>   
-            <string>CodeSignatureVerifier</string>   
-            <key>Arguments</key>   
-            <dict>   
-                <key>input_path</key>   
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
                 <string>%RECIPE_CACHE_DIR%/unpack/%PKG_NAME%/Applications/Server.app</string>
                 <key>requirement</key>
                 <string>(anchor apple generic and certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or anchor apple) and identifier "com.apple.Server.v4"</string>

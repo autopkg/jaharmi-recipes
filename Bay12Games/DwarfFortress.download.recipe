@@ -14,7 +14,7 @@
 		<string>Dwarf Fortress</string>
 		<key>PRODUCT_RE_PATTERN</key>
 		<string>.a href="(df_\d+_\d+_osx.tar.bz2)"</string>
-<!-- 
+<!--
         https://www.bay12games.com/dwarves/
         <a href="df_42_05_osx.tar.bz2">Mac (Intel)</a>
 		https://www.bay12games.com/dwarves/df_42_05_osx.tar.bz2

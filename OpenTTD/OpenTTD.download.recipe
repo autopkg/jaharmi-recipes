@@ -18,7 +18,7 @@
 		<string>OpenTTD</string>
 		<key>PRODUCT_RE_PATTERN</key>
 		<string>.a href="//(binaries.openttd.org/releases/[0-9\.]+/openttd-[0-9\.]+-macosx-universal.zip)"</string>
-<!-- 
+<!--
         https://www.openttd.org/en/download-stable
         <a href="//binaries.openttd.org/releases/1.5.3/openttd-1.5.3-macosx-universal.zip">
 		https://binaries.openttd.org/releases/1.5.3/openttd-1.5.3-macosx-universal.zip

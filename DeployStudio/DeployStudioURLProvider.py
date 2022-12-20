@@ -1,4 +1,5 @@
 #!/usr/local/autopkg/python
+# -*- coding: utf-8 -*-
 
 from autopkglib import Processor, ProcessorError, URLGetter
 

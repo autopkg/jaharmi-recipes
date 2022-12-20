@@ -16,7 +16,7 @@
         <string>https://www.twocanoes.com/sd-clone/updates/sd-clone3-software-updates.xml</string>
         <key>PRODUCT_DOWNLOAD_URL</key>
         <string>https://www.twocanoes.com/products/mac/sd-clone</string>
-<!-- 
+<!--
         https://tc-downloads.s3.amazonaws.com/SDClone3_0.dmg
         <a href="//tc-downloads.s3.amazonaws.com/SDClone3_0.dmg" class="pure-button pure-button-primary clicky_log_download">Download Now</a>
  -->
@@ -71,7 +71,7 @@
                 </dict>
             </dict>
         </dict>
- 
+
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
@@ -91,7 +91,7 @@
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
 		</dict>
-<!-- 
+<!--
 		<dict>
 			<key>Arguments</key>
 			<dict>

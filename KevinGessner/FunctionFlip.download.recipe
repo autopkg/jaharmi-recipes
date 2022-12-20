@@ -12,7 +12,7 @@
 	    <string>http://kevingessner.com</string>
 	    <key>PRODUCT_DOWNLOAD_URL</key>
 	    <string>%PRODUCT_BASE_URL%/software/functionflip/</string>
-        <!-- 
+        <!--
         <a href="/public/downloads/FunctionFlip/2.2.3/FunctionFlip.prefPane.zip" class="download">Download FunctionFlip</a>
          -->
 		<key>PRODUCT_RE_PATTERN</key>

@@ -14,7 +14,7 @@
 		<string>audio|acacia:server</string>
 		<key>PRODUCT_RE_PATTERN</key>
 		<string>.a href="(http://install.plethra.com/prelude/macamd64/audio-acacia.pkg)"</string>
-<!-- 
+<!--
         <a href="http://install.plethra.com/prelude/macamd64/audio-acacia.pkg">Mac OS X - Intel (32-bit &amp; 64-bit)</a>
 		http://install.plethra.com/prelude/macamd64/audio-acacia.pkg
  -->

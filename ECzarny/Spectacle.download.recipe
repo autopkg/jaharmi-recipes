@@ -16,7 +16,7 @@
 		<string>Spectacle</string>
 		<key>PRODUCT_RE_PATTERN</key>
 		<string>.a.+href="(https://.+/Spectacle.[\d\.]+.zip)"</string>
-<!-- 
+<!--
         https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.0.1.zip
         <a class="button" href="https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.0.1.zip" onclick="var that = this; _gaq.push(['_trackEvent', 'Download', 'Spectacle', this.href]); setTimeout(function() { location.href = that.href; }, 200); return false;">Download Spectacle</a>
  -->

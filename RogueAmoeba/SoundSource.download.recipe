@@ -10,7 +10,7 @@
     <dict>
         <key>NAME</key>
         <string>SoundSource</string>
-<!-- 
+<!--
         <key>SPARKLE_FEED_URL</key>
         <string>https://rogueamoeba.net/ping/versionCheck.cgi?format=sparkle&amp;bundleid=com.rogueamoeba.soundsource</string>
  -->
@@ -65,12 +65,12 @@
 			<key>Processor</key>
 			<string>Unarchiver</string>
 		</dict>
-        <dict>   
-            <key>Processor</key>   
-            <string>CodeSignatureVerifier</string>   
-            <key>Arguments</key>   
-            <dict>   
-                <key>input_path</key>   
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications/SoundSource.app</string>
 				<key>requirement</key>
                 <string>anchor apple generic and identifier "com.rogueamoeba.soundsource" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "7266XEXAPM")</string>

@@ -17,7 +17,7 @@
         -->
 		<key>RE_PATTERN</key>
 		<string>.tr..td align="right"..b.Version./b.:./td..td.([\d\.]+)./td../tr.</string>
-<!-- 
+<!--
 		<string>.a href="//(binaries.openttd.org/releases/[0-9\.]+/openttd-[0-9\.]+-macosx-universal.zip)"</string>
  -->
 		<key>DOWNLOAD_URL</key>
@@ -66,7 +66,7 @@
 			<key>Processor</key>
 			<string>Versioner</string>
 		</dict>
-        <!-- 
+        <!--
         Temporary workaround for CodeSignatureVerifier limitation.
         Copy file change file extension to ".app".
         Remove Copier when no longer necessary.
@@ -84,7 +84,7 @@
         	<key>Processor</key>
         	<string>Copier</string>
         </dict>
-        <!-- 
+        <!--
         Change back from app to prefPane when that is supported.
          -->
 		<dict>
@@ -98,7 +98,7 @@
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
 		</dict>
-        <!-- 
+        <!--
         Remove PathDeleter when prefPane verification is supported.
          -->
         <dict>
@@ -106,7 +106,7 @@
         	<dict>
         	    <key>path_list</key>
         	    <array>
-                    <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.app</string>        	    	
+                    <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.app</string>
         	    </array>
         	</dict>
         	<key>Processor</key>

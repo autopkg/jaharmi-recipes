@@ -49,7 +49,7 @@
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
 		</dict>
-<!-- 
+<!--
 		<dict>
 			<key>Arguments</key>
 			<dict>

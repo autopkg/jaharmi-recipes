@@ -16,7 +16,7 @@
 		<string>https://jenkins-ci.org/</string>
 		<key>VERSION_RE_PATTERN</key>
 		<string>.strong.\nLatest:\n(\d+.\d+)\n.\/strong.</string>
-<!-- 
+<!--
         https://jenkins-ci.org
         http://mirrors.jenkins-ci.org/osx/latest
 <strong>
