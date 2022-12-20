@@ -5,7 +5,7 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v1.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Paw.</string>
+	<string>Downloads the latest version of Paw (now named RapidAPI).</string>
 	<key>Identifier</key>
 	<string>com.github.jaharmi.download.Paw</string>
 	<key>Input</key>
@@ -51,7 +51,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications/Paw.app</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications/RapidAPI.app</string>
 				<key>requirement</key>
 				<string>anchor apple generic and identifier "com.luckymarmot.Paw" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "84599RL58A")</string>
 			</dict>
@@ -62,7 +62,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications/Paw.app/Contents/Info.plist</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications/RapidAPI.app/Contents/Info.plist</string>
 				<key>plist_version_key</key>
 				<string>CFBundleShortVersionString</string>
 			</dict>
