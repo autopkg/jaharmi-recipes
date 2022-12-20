@@ -10,9 +10,9 @@ repos:
       - id: forbid-autopkg-overrides
         exclude: ^Corel\/
       - id: forbid-autopkg-trust-info
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  -   repo: https://github.com/pre-commit/pre-commit-hooks
       rev: v4.3.0
-    hooks:
+      hooks:
       - id: check-added-large-files
         args: ["--maxkb=100"]
       - id: check-ast
