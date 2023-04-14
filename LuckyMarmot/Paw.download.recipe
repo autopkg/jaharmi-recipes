@@ -11,7 +11,7 @@
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL</key>
-		<string>https://luckymarmot.com/paw/download</string>
+		<string>https://paw.cloud/download</string>
 		<key>NAME</key>
 		<string>Paw</string>
 	</dict>
