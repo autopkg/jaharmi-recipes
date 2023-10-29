@@ -12,6 +12,8 @@
         <string>http://sdl.olympus-imaging.com/agps/index.en.html</string>
         <key>olympus_agps_utility_product_pattern</key>
         <string>/agps/data/AGPSUtilSetup_v\d+.dmg</string>
+        <key>NAME</key>
+        <string>OLYMPUS A-GPS Utility</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
