@@ -8,6 +8,11 @@
     <string>com.github.jaharmi.install.Olympus.A-GPSUtility</string>
     <key>ParentRecipe</key>
     <string>com.github.jaharmi.download.Olympus.A-GPSUtility</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>OLYMPUS A-GPS Utility</string>
+    </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
