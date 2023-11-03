@@ -8,45 +8,27 @@
 	<string>Installs the latest version of Manuscripts.</string>
 	<key>Identifier</key>
 	<string>com.github.jaharmi.install.Manuscripts</string>
+	<key>ParentRecipe</key>
+	<string>com.github.jaharmi.download.Manuscripts</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>Manuscripts</string>
+		<key>DEPRECATION_REASON</key>
+		<string>Download links and update feeds appear to redirect to an unrelated site. See Issue #63.</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
-	<key>ParentRecipe</key>
-	<string>com.github.jaharmi.download.Manuscripts</string>
 	<key>Process</key>
 	<array>
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>dmg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-				<key>dmg_root</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications</string>
+				<key>warning_message</key>
+				<string>Recipes related to %NAME% have been retired. %DEPRECATION_REASON%</string>
 			</dict>
 			<key>Processor</key>
-			<string>DmgCreator</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>dmg_path</key>
-				<string>%dmg_path%</string>
-				<key>items_to_copy</key>
-				<array>
-					<dict>
-						<key>destination_path</key>
-						<string>/Applications</string>
-						<key>source_item</key>
-						<string>Manuscripts.app</string>
-					</dict>
-				</array>
-			</dict>
-			<key>Processor</key>
-			<string>InstallFromDMG</string>
+			<string>DeprecationWarning</string>
 		</dict>
 	</array>
 </dict>
