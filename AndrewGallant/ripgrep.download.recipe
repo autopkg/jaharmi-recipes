@@ -10,8 +10,11 @@
 	<string>com.github.jaharmi.download.ripgrep</string>
 	<key>Input</key>
 	<dict>
-		<key>ASSET_REGEX</key>
-		<string>^.*apple.*$</string>
+		<key>%ASSET_REGEX%</key>
+		<string>-apple-darwin.tar.gz$</string>
+		<!-- valid options for mac are x86_64 or aarch64 for Apple Silicon -->
+		<key>ARCH</key>
+		<string>aarch64</string>
 		<key>GITHUB_REPO</key>
 		<string>BurntSushi/ripgrep</string>
 		<key>NAME</key>
@@ -25,7 +28,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>asset_regex</key>
-				<string>%ASSET_REGEX%</string>
+				<string>^.*%ARCH%%ASSET_REGEX%</string>
 				<key>github_repo</key>
 				<string>%GITHUB_REPO%</string>
 			</dict>
