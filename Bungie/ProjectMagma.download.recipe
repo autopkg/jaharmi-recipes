@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>PRODUCT_DOWNLOAD_URL</key>
-        <string>http://projectmagma.net/downloads</string>
+        <string>https://projectmagma.net/downloads</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>

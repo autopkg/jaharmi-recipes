@@ -9,7 +9,7 @@
 	<key>Input</key>
 	<dict>
 		<key>PRODUCT_DOWNLOAD_URL</key>
-		<string>http://mirrors.jenkins-ci.org/osx/latest</string>
+		<string>https://mirrors.jenkins-ci.org/osx/latest</string>
 		<key>NAME</key>
 		<string>Jenkins CI</string>
 		<key>VERSION_DOWNLOAD_URL</key>
@@ -18,7 +18,7 @@
 		<string>.strong.\nLatest:\n(\d+.\d+)\n.\/strong.</string>
 <!--
         https://jenkins-ci.org
-        http://mirrors.jenkins-ci.org/osx/latest
+        https://mirrors.jenkins-ci.org/osx/latest
 <strong>
 Latest:
 1.646
