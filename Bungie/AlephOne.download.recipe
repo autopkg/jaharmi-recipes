@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>marathon_url</key>
-        <string>http://marathon.sourceforge.net/download/macosx.php?game=</string>
+        <string>https://marathon.sourceforge.net/download/macosx.php?game=</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>

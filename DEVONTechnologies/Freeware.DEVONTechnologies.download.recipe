@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>PRODUCT_DOWNLOAD_URL</key>
-        <string>http://www.devontechnologies.com/download/products.html</string>
+        <string>https://www.devontechnologies.com/download/products.html</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
