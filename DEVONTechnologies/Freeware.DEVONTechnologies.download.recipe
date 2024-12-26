@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>PRODUCT_DOWNLOAD_URL</key>
-        <string>http://www.devontechnologies.com/download/products.html</string>
+        <string>https://www.devontechnologies.com/support/download</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
@@ -26,6 +26,11 @@
                 <string>%PRODUCT_RE_PATTERN%</string>
                 <key>result_output_var_name</key>
                 <string>devon_freeware_download</string>
+                <key>request_headers</key>
+                <dict>
+                    <key>user-agent</key>
+                    <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.2 Safari/605.1.15</string>
+                </dict>
             </dict>
         </dict>
         <dict>
