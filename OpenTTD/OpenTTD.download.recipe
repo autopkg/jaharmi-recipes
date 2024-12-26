@@ -10,14 +10,12 @@
 	<string>com.github.jaharmi.download.OpenTTD</string>
 	<key>Input</key>
 	<dict>
-	    <key>DOWNLOAD_BRANCH</key>
-	    <string>stable</string>
 		<key>PRODUCT_DOWNLOAD_URL</key>
-		<string>https://www.openttd.org/en/download-</string>
+		<string>https://www.openttd.org/downloads/openttd-releases/latest</string>
 		<key>NAME</key>
 		<string>OpenTTD</string>
 		<key>PRODUCT_RE_PATTERN</key>
-		<string>.a href="//(binaries.openttd.org/releases/[0-9\.]+/openttd-[0-9\.]+-macosx-universal.zip)"</string>
+		<string>href="(https://cdn\.openttd\.org/openttd-releases/[\d\.]+/openttd-[\d\.]+-macos-universal\.zip)"</string>
 <!--
         https://www.openttd.org/en/download-stable
         <a href="//binaries.openttd.org/releases/1.5.3/openttd-1.5.3-macosx-universal.zip">
@@ -36,19 +34,14 @@
 				<key>re_pattern</key>
 				<string>%PRODUCT_RE_PATTERN%</string>
 				<key>result_output_var_name</key>
-				<string>FILE_DOWNLOAD_URL</string>
+				<string>url</string>
 				<key>url</key>
-				<string>%PRODUCT_DOWNLOAD_URL%%DOWNLOAD_BRANCH%</string>
+				<string>%PRODUCT_DOWNLOAD_URL%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
 		</dict>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-				<string>https://%FILE_DOWNLOAD_URL%</string>
-			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 		</dict>
