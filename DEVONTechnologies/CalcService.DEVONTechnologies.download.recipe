@@ -13,7 +13,7 @@
         <key>NAME</key>
         <string>CalcService</string>
         <key>PRODUCT_RE_PATTERN</key>
-        <string>.a href="(https://\S+/download/freeware/calcservice/[0-9\.]+/CalcService.zip)</string>
+        <string>href="(https://download\.devontechnologies\.com/download/freeware/calcservice/[\d\.]+/CalcService\.app\.zip)"</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>

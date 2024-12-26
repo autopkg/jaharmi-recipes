@@ -13,7 +13,7 @@
         <key>NAME</key>
         <string>WordService</string>
         <key>PRODUCT_RE_PATTERN</key>
-        <string>.a href="(https://\S+/download/freeware/wordservice/[0-9\.]+/WordService.zip)</string>
+        <string>href="(https://download\.devontechnologies\.com/download/freeware/wordservice/[\d\.]+/WordService\.app\.zip)"</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
