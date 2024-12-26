@@ -9,11 +9,11 @@
 	<key>Input</key>
 	<dict>
 		<key>PRODUCT_DOWNLOAD_URL</key>
-		<string>https://www.bay12games.com/dwarves/</string>
+		<string>https://www.bay12games.com/dwarves/older_versions.html</string>
 		<key>NAME</key>
 		<string>Dwarf Fortress</string>
 		<key>PRODUCT_RE_PATTERN</key>
-		<string>.a href="(df_\d+_\d+_osx.tar.bz2)"</string>
+		<string>href="(df_[\d_]+_osx\.tar\.bz2)"</string>
 <!--
         https://www.bay12games.com/dwarves/
         <a href="df_42_05_osx.tar.bz2">Mac (Intel)</a>
@@ -41,7 +41,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>%PRODUCT_DOWNLOAD_URL%%FILE_DOWNLOAD_URL%</string>
+				<string>https://www.bay12games.com/dwarves/%FILE_DOWNLOAD_URL%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
