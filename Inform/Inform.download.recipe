@@ -10,12 +10,8 @@
 	<string>com.github.jaharmi.download.Inform</string>
 	<key>Input</key>
 	<dict>
-		<key>PRODUCT_DOWNLOAD_URL</key>
-		<string>http://inform7.com/download/</string>
 		<key>NAME</key>
 		<string>Inform</string>
-		<key>PRODUCT_RE_PATTERN</key>
-		<string>href="/apps/.*/I7-[0-9][A-Z][0-9]{2}-OSX(?:-Interim).dmg)</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
@@ -24,21 +20,19 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>re_pattern</key>
-				<string>%PRODUCT_RE_PATTERN%</string>
-				<key>result_output_var_name</key>
-				<string>FILE_DOWNLOAD_URL</string>
-				<key>url</key>
-				<string>%PRODUCT_DOWNLOAD_URL%</string>
+				<key>asset_regex</key>
+				<string>.*\.dmg</string>
+				<key>github_repo</key>
+				<string>ganelson/inform</string>
 			</dict>
 			<key>Processor</key>
-			<string>URLTextSearcher</string>
+			<string>GitHubReleasesInfoProvider</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>url</key>
-				<string>https://inform7.com/%FILE_DOWNLOAD_URL%</string>
+				<key>filename</key>
+				<string>%NAME%-%version%.dmg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
