@@ -10,16 +10,8 @@
 	<string>com.github.jaharmi.download.Spectacle</string>
 	<key>Input</key>
 	<dict>
-		<key>PRODUCT_DOWNLOAD_URL</key>
-		<string>https://www.spectacleapp.com</string>
 		<key>NAME</key>
 		<string>Spectacle</string>
-		<key>PRODUCT_RE_PATTERN</key>
-		<string>.a.+href="(https://.+/Spectacle.[\d\.]+.zip)"</string>
-<!--
-        https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.0.1.zip
-        <a class="button" href="https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.0.1.zip" onclick="var that = this; _gaq.push(['_trackEvent', 'Download', 'Spectacle', this.href]); setTimeout(function() { location.href = that.href; }, 200); return false;">Download Spectacle</a>
- -->
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
@@ -28,21 +20,19 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>re_pattern</key>
-				<string>%PRODUCT_RE_PATTERN%</string>
-				<key>result_output_var_name</key>
-				<string>FILE_DOWNLOAD_URL</string>
-				<key>url</key>
-				<string>%PRODUCT_DOWNLOAD_URL%</string>
+				<key>asset_regex</key>
+				<string>Spectacle.*\.zip</string>
+				<key>github_repo</key>
+				<string>eczarny/spectacle</string>
 			</dict>
 			<key>Processor</key>
-			<string>URLTextSearcher</string>
+			<string>GitHubReleasesInfoProvider</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>url</key>
-				<string>%FILE_DOWNLOAD_URL%</string>
+				<key>filename</key>
+				<string>%NAME%-%version%.zip</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
