@@ -12,22 +12,6 @@
 		<string>USBOverdrive</string>
 		<key>DISPLAY_NAME</key>
 		<string>USB Overdrive</string>
-		<key>PRODUCT_RE_URL</key>
-		<string>https://www.senlick.com/html/01.01.html</string>
-		<key>PRODUCT_RE_PATTERN</key>
-		<string>.a href="\.\./(macsw/USB-Overdrive-[0-9\.]+.dmg)".USB Overdrive [0-9\.]+./a.</string>
-<!--
-        Example URL
-        <a href="../macsw/USB-Overdrive-32.dmg">USB Overdrive 3.2</a>
--->
-		<key>PRODUCT_DOWNLOAD_URL</key>
-		<string>https://www.senlick.com</string>
-		<key>PRODUCT_VERSION_RE_URL</key>
-		<string>%PRODUCT_DOWNLOAD_URL%/html/01.01.html</string>
-		<key>PRODUCT_VERSION_RE_PATTERN</key>
-		<string>.a href="\.\./macsw/USB-Overdrive-[0-9\.]+.dmg".USB Overdrive ([0-9\.]+)./a.</string>
-		<key>PRODUCT_PACKAGE_NAME</key>
-		<string>Install %DISPLAY_NAME%</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
@@ -37,11 +21,11 @@
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>%PRODUCT_VERSION_RE_PATTERN%</string>
+				<string>href="(https://www\.usboverdrive\.com/download/USB-Overdrive-\d+\.dmg)"</string>
 				<key>result_output_var_name</key>
-				<string>version</string>
+				<string>url</string>
 				<key>url</key>
-				<string>%PRODUCT_VERSION_RE_URL%</string>
+				<string>https://www.usboverdrive.com/downloads/</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
@@ -49,21 +33,8 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>re_pattern</key>
-				<string>%PRODUCT_RE_PATTERN%</string>
-				<key>result_output_var_name</key>
-				<string>DOWNLOAD_URL</string>
-				<key>url</key>
-				<string>%PRODUCT_RE_URL%</string>
-			</dict>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-			    <key>url</key>
-			    <string>%PRODUCT_DOWNLOAD_URL%/%DOWNLOAD_URL%</string>
+			    <key>filename</key>
+			    <string>%NAME%.dmg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -76,16 +47,23 @@
             <key>Arguments</key>
             <dict>
                 <key>input_path</key>
-                <string>%pathname%/%PRODUCT_PACKAGE_NAME%.pkg</string>
-                <key>expected_authority_names</key>
-                <array>
-                    <string>Developer ID Installer: A. Levi Montalcini</string>
-                    <string>Developer ID Certification Authority</string>
-                    <string>Apple Root CA</string>
-                </array>
+                <string>%pathname%/USB Overdrive.app</string>
+                <key>requirements</key>
+				<string>identifier "com.usboverdrive.app" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = CD9MC43X4P</string>
             </dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+                <string>%pathname%/USB Overdrive.app/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleShortVersionString</string>
+			</dict>
+			<key>Processor</key>
+			<string>Versioner</string>
 		</dict>
 	</array>
 </dict>
