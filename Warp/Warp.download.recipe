@@ -12,8 +12,6 @@
 	<dict>
 		<key>NAME</key>
 		<string>Warp</string>
-		<key>DOWNLOAD_URL</key>
-		<string>https://warp-releases.storage.googleapis.com/stable/v0.2022.09.20.08.08.stable_01/Warp.dmg</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
@@ -25,7 +23,7 @@
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<string>https://app.warp.dev/download?</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
