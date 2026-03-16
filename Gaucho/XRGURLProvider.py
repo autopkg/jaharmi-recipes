@@ -17,8 +17,7 @@ update_url = "http://download.gauchosoft.com/xrg/latest_version.txt"
 
 class XRGURLProvider(URLGetter):
     description = "Provides URL to the latest XRG download."
-    input_variables = {
-    }
+    input_variables = {}
     output_variables = {
         "version": {
             "description": "Version of the XRG download.",
@@ -49,22 +48,24 @@ class XRGURLProvider(URLGetter):
         """Pad the version number if it is shorter than expected."""
         download_version_components = download_version.split(".")
         download_version_component_count = len(download_version_components)
+        self.output(download_version_component_count)
         if download_version_component_count < 3:
             pad_count = 3 - download_version_component_count
-            padded_version = download_version + (".0" * pad_count)
-        return padded_version
+            download_version = download_version + (".0" * pad_count)
+        return download_version
 
     def main(self):
         """Find and return a download URL."""
 
         # Get the string representing the requested XRG version
-        download_version = self.download(update_url, text=True).strip()
-        padded_version = self.pad_version(download_version)
-        self.env["version"] = padded_version
+        download_version = self.pad_version(
+            self.download(update_url, text=True).strip()
+        )
+        self.env["version"] = download_version
         self.output("Found version %s" % self.env["version"])
 
         # Get the filename of the XRG disk image download using the version
-        download_filename = self.get_xrg_archive_file(padded_version)
+        download_filename = self.get_xrg_archive_file(download_version)
         self.env["filename"] = download_filename
         self.output("Found download filename %s" % self.env["filename"])
 
