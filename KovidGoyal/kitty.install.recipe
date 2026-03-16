@@ -16,7 +16,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.jaharmi.download.kitty</string>
+	<string>com.github.apizz.download.Kitty</string>
 	<key>Process</key>
 	<array>
 		<dict>
