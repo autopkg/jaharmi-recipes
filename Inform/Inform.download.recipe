@@ -11,7 +11,7 @@
 	<key>Input</key>
 	<dict>
 		<key>PRODUCT_DOWNLOAD_URL</key>
-		<string>http://inform7.com/download/</string>
+		<string>https://inform7.com/download/</string>
 		<key>NAME</key>
 		<string>Inform</string>
 		<key>PRODUCT_RE_PATTERN</key>
