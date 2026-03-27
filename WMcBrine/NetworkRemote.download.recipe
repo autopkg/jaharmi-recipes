@@ -12,10 +12,6 @@
 	<dict>
 		<key>NAME</key>
 		<string>Network Remote</string>
-		<key>PRODUCT_DOWNLOAD_URL</key>
-		<string>https://wmcbrine.com/tivo/</string>
-		<key>PRODUCT_RE_PATTERN</key>
-		<string>.a class="dl" href="(network-remote-[0-9\.]+.dmg)</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
@@ -24,23 +20,19 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>re_pattern</key>
-				<string>%PRODUCT_RE_PATTERN%</string>
-				<key>result_output_var_name</key>
-				<string>FILE_DOWNLOAD_URL</string>
-				<key>url</key>
-				<string>%PRODUCT_DOWNLOAD_URL%</string>
+				<key>github_repo</key>
+				<string>wmcbrine/tivoremote</string>
+				<key>include_prereleases</key>
+				<false/>
 			</dict>
 			<key>Processor</key>
-			<string>URLTextSearcher</string>
+			<string>GitHubReleasesInfoProvider</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%FILE_DOWNLOAD_URL%</string>
-				<key>url</key>
-				<string>%PRODUCT_DOWNLOAD_URL%%FILE_DOWNLOAD_URL%</string>
+				<string>%NAME%-%version%.dmg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
