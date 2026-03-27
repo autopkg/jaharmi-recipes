@@ -13,7 +13,7 @@
 		<key>DISPLAY_NAME</key>
 		<string>Safari Technology Preview</string>
 		<key>DOWNLOAD_URL</key>
-		<string>http://appldnld.apple.com/STP/SafariTechnologyPreview.dmg</string>
+		<string>https://appldnld.apple.com/STP/SafariTechnologyPreview.dmg</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
