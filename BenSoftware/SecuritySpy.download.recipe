@@ -11,7 +11,7 @@
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL</key>
-		<string>https://www.bensoftware.com/securityspy/SecuritySpy.dmg</string>
+		<string>https://www.bensoftware.com/securityspy/releases/SecuritySpy.dmg</string>
 		<key>NAME</key>
 		<string>SecuritySpy</string>
 	</dict>
