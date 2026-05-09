@@ -48,7 +48,6 @@ class XRGURLProvider(URLGetter):
         """Pad the version number if it is shorter than expected."""
         download_version_components = download_version.split(".")
         download_version_component_count = len(download_version_components)
-        self.output(download_version_component_count)
         if download_version_component_count < 3:
             pad_count = 3 - download_version_component_count
             download_version = download_version + (".0" * pad_count)
