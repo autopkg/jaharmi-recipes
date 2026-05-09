@@ -7,12 +7,12 @@ from autopkglib import Processor, ProcessorError, URLGetter
 __all__ = ["XRGURLProvider"]
 
 # URL to consult for current version of XRG
-# http://download.gauchosoft.com/xrg/latest_version.txt
+# https://download.gauchosoft.com/xrg/latest_version.txt
 
-update_url = "http://download.gauchosoft.com/xrg/latest_version.txt"
+update_url = "https://download.gauchosoft.com/xrg/latest_version.txt"
 
 # Sample URL to download a specific version of XRG
-# http://download.gauchosoft.com/xrg/XRG-release-1.7.3.zip
+# https://download.gauchosoft.com/xrg/XRG-release-1.7.3.zip
 
 
 class XRGURLProvider(URLGetter):
@@ -41,7 +41,7 @@ class XRGURLProvider(URLGetter):
     def get_xrg_dmg_url(self, download_filename):
         """Construct the URL for the XRG file download."""
         # Return URL
-        dmg_url = "http://download.gauchosoft.com/xrg/{0}".format(download_filename)
+        dmg_url = "https://download.gauchosoft.com/xrg/{0}".format(download_filename)
         return dmg_url
 
     def pad_version(self, download_version):
