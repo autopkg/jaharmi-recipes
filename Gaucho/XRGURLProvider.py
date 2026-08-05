@@ -7,18 +7,17 @@ from autopkglib import Processor, ProcessorError, URLGetter
 __all__ = ["XRGURLProvider"]
 
 # URL to consult for current version of XRG
-# http://download.gauchosoft.com/xrg/latest_version.txt
+# https://download.gauchosoft.com/xrg/latest_version.txt
 
-update_url = "http://download.gauchosoft.com/xrg/latest_version.txt"
+update_url = "https://download.gauchosoft.com/xrg/latest_version.txt"
 
 # Sample URL to download a specific version of XRG
-# http://download.gauchosoft.com/xrg/XRG-release-1.7.3.zip
+# https://download.gauchosoft.com/xrg/XRG-release-1.7.3.zip
 
 
 class XRGURLProvider(URLGetter):
     description = "Provides URL to the latest XRG download."
-    input_variables = {
-    }
+    input_variables = {}
     output_variables = {
         "version": {
             "description": "Version of the XRG download.",
@@ -42,7 +41,7 @@ class XRGURLProvider(URLGetter):
     def get_xrg_dmg_url(self, download_filename):
         """Construct the URL for the XRG file download."""
         # Return URL
-        dmg_url = "http://download.gauchosoft.com/xrg/{0}".format(download_filename)
+        dmg_url = "https://download.gauchosoft.com/xrg/{0}".format(download_filename)
         return dmg_url
 
     def pad_version(self, download_version):
@@ -51,20 +50,21 @@ class XRGURLProvider(URLGetter):
         download_version_component_count = len(download_version_components)
         if download_version_component_count < 3:
             pad_count = 3 - download_version_component_count
-            padded_version = download_version + (".0" * pad_count)
-        return padded_version
+            download_version = download_version + (".0" * pad_count)
+        return download_version
 
     def main(self):
         """Find and return a download URL."""
 
         # Get the string representing the requested XRG version
-        download_version = self.download(update_url, text=True).strip()
-        padded_version = self.pad_version(download_version)
-        self.env["version"] = padded_version
+        download_version = self.pad_version(
+            self.download(update_url, text=True).strip()
+        )
+        self.env["version"] = download_version
         self.output("Found version %s" % self.env["version"])
 
         # Get the filename of the XRG disk image download using the version
-        download_filename = self.get_xrg_archive_file(padded_version)
+        download_filename = self.get_xrg_archive_file(download_version)
         self.env["filename"] = download_filename
         self.output("Found download filename %s" % self.env["filename"])
 
