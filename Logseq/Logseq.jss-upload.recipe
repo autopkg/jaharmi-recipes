@@ -18,7 +18,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.jaharmi.pkg.Logseq</string>
+	<string>com.github.w0.pkg.logseq</string>
 	<key>Process</key>
 	<array>
 		<dict>
