@@ -39,7 +39,9 @@ Support Kenku FM via:
 			<key>unattended_install</key>
 			<true/>
 			<key>supported_architectures</key>
-			<string>%ASSET_ARCH%</string>
+			<array>
+				<string>%ASSET_ARCH%</string>
+			</array>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
