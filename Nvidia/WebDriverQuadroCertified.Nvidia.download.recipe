@@ -13,7 +13,7 @@
 		<key>NAME</key>
 		<string>Nvidia Mac Quadro-Certified and GeForce Web Driver</string>
 		<key>PRODUCT_RE_PATTERN</key>
-		<string>.string.(http://us.download.nvidia.com/Mac/Quadro_Certified/\d{3}.\d{2}.[0-9a-z]{5}/WebDriver-\d{3}.\d{2}.[0-9a-z]{5}.pkg).\/string.</string>
+		<string>(https://images\.nvidia\.com/mac/pkg/\d+/WebDriver-[\d\.f]+\.pkg)</string>
 <!--
         https://gfe.nvidia.com/mac-update
         <key>downloadURL</key>
@@ -46,24 +46,24 @@
 			<key>Processor</key>
 			<string>URLDownloader</string>
 		</dict>
-        <dict>
-            <key>Processor</key>
-            <string>CodeSignatureVerifier</string>
-            <key>Arguments</key>
-            <dict>
-                <key>input_path</key>
-                <string>%pathname%</string>
-                <key>expected_authority_names</key>
-                <array>
-                    <string>Developer ID Installer: NVIDIA Corporation</string>
-                    <string>Developer ID Certification Authority</string>
-                    <string>Apple Root CA</string>
-                </array>
-            </dict>
-        </dict>
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pathname%</string>
+				<key>expected_authority_names</key>
+				<array>
+					<string>Developer ID Installer: NVIDIA Corporation (6KR3T733EC)</string>
+					<string>Developer ID Certification Authority</string>
+					<string>Apple Root CA</string>
+				</array>
+			</dict>
 		</dict>
 	</array>
 </dict>
